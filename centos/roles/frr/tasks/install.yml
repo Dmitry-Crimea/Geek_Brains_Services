@@ -16,4 +16,7 @@
       template:
         src: daemons.j2
         dest: /etc/frr/daemons
+        notify: restart frr service
+
+
 #  update_cache: yes
