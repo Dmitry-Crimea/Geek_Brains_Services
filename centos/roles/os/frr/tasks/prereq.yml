@@ -1,4 +1,10 @@
 ---
+
+- name: Check if output directory exists
+  stat:
+    path: /home/it/frr
+  register: output_folder
+
 - name: Create directory and download frr, and libyang
   block:
     - name: Create directory
@@ -9,6 +15,7 @@
         group: root
         mode: 0755
         recurse: yes
+      when: output_folder.stat.exists == false
 
     - name: Download frr
       get_url:
