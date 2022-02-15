@@ -2,8 +2,8 @@
 - hosts: all
   gather_facts: False
   roles:
-#    - os/vim
-#    - os/frr
+    - os/vim
+    - os/frr
     - os/firewalld
 
 
