@@ -4,14 +4,23 @@
     - name: allow icmp
       firewalld:
         zone: public
-        state: present
+        state: enabled
         permanent: yes
         icmp_block_inversion: no
 
-    - name: allow icmp
+    - name: allow ospf
       firewalld:
         zone: public
+        port: 89
         state: enabled
         permanent: yes
-        protocols: ospf
-    notify: reload firewalld
+
+    - name: allow protocol ospf
+      firewalld:
+        rich_rule: ip firewall filter add action=accept chain=input protocol=ospf
+        zone: public
+        permanent: yes
+        immediate: yes
+        state: enabled
+
+
