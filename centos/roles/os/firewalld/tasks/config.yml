@@ -15,12 +15,12 @@
         state: enabled
         permanent: yes
 
-    - name: allow protocol ospf
-      firewalld:
-        rich_rule: ip firewall filter add action=accept chain=input protocol=ospf
-        zone: public
-        permanent: yes
-        immediate: yes
-        state: enabled
+#    - name: allow protocol ospf
+#      firewalld:
+#        rich_rule: ip firewall filter add action=accept chain=input protocol=ospf
+#        zone: public
+#        permanent: yes
+#        immediate: yes
+#        state: enabled
 
 
