@@ -1,9 +1,14 @@
 ---
 
-- name: Install frr
+- name: Install libyang and frr
   block:
+    - name: install libyang
+      yum:
+        name: /home/it/frr/libyang-0.16.111-0.x86_64.rpm
+        state: present
+
     - name: install frr
       yum:
         name: /home/it/frr/frr-7.0-01.el7.centos.x86_64.rpm
         state: present
-        update_cache: yes
+#  update_cache: yes
