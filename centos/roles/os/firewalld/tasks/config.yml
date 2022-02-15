@@ -1,0 +1,16 @@
+---
+- name: allow icmp
+  firewalld:
+    zone: public
+    state: present
+    permanent: yes
+    icmp_block_inversion: no
+    notify: reload firewalld
+
+- name: allow icmp
+  firewalld:
+    zone: public
+    state: enabled
+    permanent: yes
+    protocols: ospf
+    notify: reload firewalld
