@@ -1,0 +1,18 @@
+---
+- name: Create directory and download frr
+  block:
+  - nmae: Create directory
+    file:
+      path: /home/it/frr
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+      recurse: yes
+
+  - name: Download frr
+    get_url:
+      url: https://github.com/FRRouting/frr/releases/download/frr-7.0/frr-7.0-01.el7.centos.x86_64.rpm
+      dest: /home/it/frr
+
+

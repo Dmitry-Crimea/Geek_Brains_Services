@@ -1,0 +1,7 @@
+---
+
+- import_tasks: prereq.yml
+  tags: ['frr']
+
+- import_tasks: install.yml
+  tags: ['frr']
