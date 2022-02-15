@@ -1,0 +1,19 @@
+---
+
+- name: Install epel-repo and install vim
+  block:
+    - name: install epel-repo
+      yum:
+        name: epel-release
+        state: present
+        update_cache: yes
+
+
+    - name: install vim
+      yum:
+        name: vim
+        state: present
+        update_cache: yes
+
+
+
