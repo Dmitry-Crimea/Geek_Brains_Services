@@ -3,5 +3,5 @@
 - name: restart frr service
   service:
     name: frr
-    state: started
+    state: reloaded
     enabled: yes
