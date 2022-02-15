@@ -3,7 +3,7 @@
 - name: copy 90 routing sysctl
   template:
     src: 90-routing-sysctl.conf.j2
-    swst: /etc/sysctl.d/90-routing-sysctl.conf
+    dest: /etc/sysctl.d/90-routing-sysctl.conf
 
 - name: copy daemons frr
   template:
