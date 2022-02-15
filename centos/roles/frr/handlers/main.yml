@@ -1,0 +1,7 @@
+---
+
+- name: restart frr service
+  service:
+    name: frr
+    state: started
+    enabled: yes

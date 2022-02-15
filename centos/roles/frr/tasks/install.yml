@@ -11,4 +11,9 @@
       yum:
         name: /home/it/frr/frr-7.0-01.el7.centos.x86_64.rpm
         state: present
+
+    - name: Copy Daemons
+      template:
+        src: daemons.j2
+        dest: /etc/frr/daemons
 #  update_cache: yes
