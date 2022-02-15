@@ -4,4 +4,4 @@
   service:
     name: firewalld
     state: reloaded
-    enabled:yes
+    enabled: yes

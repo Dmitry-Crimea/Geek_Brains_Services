@@ -1,10 +1,9 @@
 ---
 - hosts: all
   gather_facts: False
-#  gather_facts: False
   roles:
 #    - os/vim
-    - os/frr
+#    - os/frr
     - os/firewalld
 
 
