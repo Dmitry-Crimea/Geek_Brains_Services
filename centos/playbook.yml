@@ -3,7 +3,7 @@
   gather_facts: False
 #  gather_facts: False
   roles:
-#    - vim
-    - frr
+#    - os/vim
+    - os/frr
 
 
