@@ -1,7 +1,16 @@
 ---
 
-- name: install nfs utils
-  yum:
-    name: nfs-utils
-    state: present
-    update_cache: yes
+- name: install and start nfs utils
+  block:
+    - name: install nfs utils
+      yum:
+        name: nfs-utils
+        state: present
+        update_cache: yes
+
+    - name: start nfs server
+      service:
+        name: nfs-server
+        state: started
+        enabled: yes
+
