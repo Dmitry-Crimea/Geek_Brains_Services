@@ -1,0 +1,5 @@
+---
+- hosts: R3
+  gather_facts: False
+  roles:
+    - os/NFS
