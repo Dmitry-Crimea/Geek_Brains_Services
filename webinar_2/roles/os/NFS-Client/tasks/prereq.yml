@@ -1,0 +1,26 @@
+---
+
+- name: Check if output directory exists
+  stat:
+    path: /home/it/"{{ item }}"
+  register: output_folder
+  loop:
+    - nfs_1
+    - nfs_2
+
+- name: make directory nfs_1 and nfs_2
+  block:
+    - name: make directory
+      file:
+        path: /home/it/"{{ item }}"
+        state: directory
+        owner: root
+        group: root
+        mode: 0755
+        recurse: yes
+      loop:
+        - nfs_1
+        - nfs_2
+
+
+

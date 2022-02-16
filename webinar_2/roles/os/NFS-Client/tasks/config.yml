@@ -1,0 +1,11 @@
+---
+
+- name: add directory to export
+  template:
+    src: exports.j2
+    dest: /etc/exports
+  notify: restart nfs service
+
+
+- name: enable exportfs
+  shell: exportfs -a

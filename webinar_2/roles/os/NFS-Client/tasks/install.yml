@@ -1,6 +1,6 @@
 ---
 
-- name: install and start nfs utils, bind
+- name: install and start nfs utils
   block:
     - name: install nfs utils
       yum:
@@ -15,7 +15,7 @@
         enabled: yes
 
     - name: start bind
-      service:
-        name: rpcbind
-        state: started
-        enabled: yes
+        service:
+          name: rpcbind
+          state: started
+          enabled: yes
