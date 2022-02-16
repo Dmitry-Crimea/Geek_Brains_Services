@@ -6,6 +6,7 @@
   register: output_folder
   loop:
     - backup
+    - backup_2
 
 
 - name: make directory backup
@@ -20,6 +21,7 @@
         recurse: yes
       loop:
         - backup
+        - backup_2
     when: output_folder is not exist
 
 
