@@ -9,7 +9,7 @@
 
     - name: install frr
       yum:
-        name: /home/it/frr/frr-7.0-01.el7.centos.x86_64.rpm
+        name: /home/it/frr/frr-7.0-01.el7.webinar_2.x86_64.rpm
         state: present
 
     - name: start frr
