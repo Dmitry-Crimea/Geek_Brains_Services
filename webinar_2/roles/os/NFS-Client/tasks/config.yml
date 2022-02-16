@@ -1,6 +1,6 @@
 ---
 
-- name: add directory to export
+- name: add directory to fstab
   template:
     src: exports.j2
     dest: /etc/exports
@@ -8,4 +8,4 @@
 
 
 - name: enable exportfs
-  shell: exportfs -a
+  shell: mount -t nfs 3.3.3.3:/backup/nfs_1/ /backup && mount -t nfs 3.3.3.3:/backup/nfs_2/ /backup

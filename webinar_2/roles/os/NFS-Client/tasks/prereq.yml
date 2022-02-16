@@ -8,7 +8,7 @@
     - backup
 
 
-- name: make directory nfs_1 and nfs_2
+- name: make directory backup
   block:
     - name: make directory
       file:
