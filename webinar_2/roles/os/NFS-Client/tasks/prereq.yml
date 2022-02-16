@@ -5,8 +5,8 @@
     path: /home/it/"{{ item }}"
   register: output_folder
   loop:
-    - nfs_1
-    - nfs_2
+    - backup
+
 
 - name: make directory nfs_1 and nfs_2
   block:
@@ -19,8 +19,8 @@
         mode: 0755
         recurse: yes
       loop:
-        - nfs_1
-        - nfs_2
+        - backup
+    when: output_folder is not exist
 
 
 

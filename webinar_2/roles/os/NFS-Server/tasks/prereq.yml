@@ -21,6 +21,7 @@
       loop:
         - nfs_1
         - nfs_2
+    when: output_folder is not exist
 
 
 
