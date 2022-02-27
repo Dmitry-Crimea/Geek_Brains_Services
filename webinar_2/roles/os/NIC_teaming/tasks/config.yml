@@ -20,3 +20,7 @@
         dest: "{{ team.dir }}/ifcfg-team0"
       when: " 'R3' in inventory_hostname"
 
+  notify: restart network service
+
+
+

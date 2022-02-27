@@ -1,0 +1,13 @@
+---
+
+- name: install dhcp server
+  yum:
+    name: install
+    state: present
+    update_cache: yes
+
+- name: start dhcp server
+  service:
+    name: dhcp
+    state: started
+    enabled: yes
