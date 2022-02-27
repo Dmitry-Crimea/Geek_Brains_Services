@@ -5,6 +5,6 @@ dir_2: nfs_2
 
 team:
   dir: /etc/sysconfig/network-scripts
-  r1: /home/it/r1
-  r2: /home/it/r2
-  r3: /home/it/r3
+#  r1: /home/it/r1
+#  r2: /home/it/r2
+#  r3: /home/it/r3
