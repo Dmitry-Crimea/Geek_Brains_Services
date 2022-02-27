@@ -1,0 +1,6 @@
+---
+
+- name: copy config file
+  template:
+    src: dhcp.conf.j2
+    dest: /etc/dhcp/dhcp.conf

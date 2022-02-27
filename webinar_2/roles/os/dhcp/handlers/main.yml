@@ -1,0 +1,7 @@
+---
+
+- name: restart dhcp server
+  service:
+    name: dhcpd
+    state: restarted
+    enabled: yes
