@@ -5,3 +5,4 @@
     name: dhcpd
     state: restarted
     enabled: yes
+  when: " 'R2' in inventory_hostname "

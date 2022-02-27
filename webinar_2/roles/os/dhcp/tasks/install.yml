@@ -2,13 +2,14 @@
 
 - name: install dhcp server
   yum:
-    name: install
+    name: dhcp
     state: present
     update_cache: yes
   when: " 'R2' in inventory_hostname "
 
 - name: start dhcp server
   service:
-    name: dhcp
-    state: started
+    name: dhcpd
     enabled: yes
+    state: started
+  when: " 'R2' in inventory_hostname "
