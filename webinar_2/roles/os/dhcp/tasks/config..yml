@@ -4,3 +4,4 @@
   template:
     src: dhcp.conf.j2
     dest: /etc/dhcp/dhcp.conf
+  notify: restart dhcp server
