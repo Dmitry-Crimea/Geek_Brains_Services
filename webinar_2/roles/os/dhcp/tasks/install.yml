@@ -5,6 +5,7 @@
     name: install
     state: present
     update_cache: yes
+  when: " 'R2' in inventory_hostname "
 
 - name: start dhcp server
   service:

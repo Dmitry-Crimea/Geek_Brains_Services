@@ -1,0 +1,4 @@
+---
+
+- name: install dhcp server
+  import_tasks: install.yml
