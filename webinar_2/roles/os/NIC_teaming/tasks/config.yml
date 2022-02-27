@@ -5,8 +5,12 @@
     - name: copy on R1
       template:
         src: ifcfg-team0_r1.j2
-        dest: "{{ team.dir }}/ifcfg-team0"
       when: " 'R1' in inventory_hostname"
+
+    - name: copy slave interface
+      template:
+        src: ifcfg-team-slave-ens37_r1.j2
+        dest: "{{ team.dir }}/ifcfg-team-slave-ens37"
 
     - name: copy on R2
       template:
