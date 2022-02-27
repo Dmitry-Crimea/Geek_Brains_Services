@@ -1,0 +1,7 @@
+---
+
+- name: install teamd
+  import_tasks: install.yml
+
+- name: copy template
+  import_tasks: config.yml

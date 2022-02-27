@@ -1,0 +1,7 @@
+---
+
+- name: install teamd
+  yum:
+    name: teamd
+    state: present
+    update_cache: yes

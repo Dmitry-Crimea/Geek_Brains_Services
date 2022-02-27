@@ -1,6 +1,8 @@
 ---
-- hosts: R3
+- hosts: all
   gather_facts: False
   roles:
-    - os/NFS-Server
-    - os/firewalld
+    - os/NIC_teaming
+#    - os/NFS-Server
+#    - os/firewalld
+

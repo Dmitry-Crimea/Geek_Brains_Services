@@ -17,8 +17,8 @@
       loop:
         - nfs
         - mountd
-        - bind
-        - ospf
+#        - bind
+#        - ospf
 
     - name: allow ospf
       firewalld:

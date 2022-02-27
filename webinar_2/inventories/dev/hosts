@@ -1,6 +1,6 @@
 [all]
 
-R1 ansible_host=192.168.42.220
-R2 ansuble_host=192.168.42.221
-R3 ansible_host=192.168.42.222
+R1 ansible_host=178.34.157.230 ansible_port=30022
+R2 ansible_host=178.34.157.230 ansible_port=30023
+R3 ansible_host=178.34.157.230 ansible_port=30024
 
