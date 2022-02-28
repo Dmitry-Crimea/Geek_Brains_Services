@@ -1,0 +1,15 @@
+---
+
+- name: copy config file
+  template:
+    src: dhcp.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+  when: " 'R2' in inventory_hostname "
+  notify: restart dhcp server
+
+- name: start dhcp server
+  service:
+    name: dhcpd
+    enabled: yes
+    state: started
+  when: " 'R2' in inventory_hostname "

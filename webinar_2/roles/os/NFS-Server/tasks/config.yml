@@ -7,5 +7,5 @@
   notify: restart nfs service
 
 
-- name: enable exportfs
-  shell: exportfs -a
+#- name: enable exportfs
+#  shell: exportfs -a

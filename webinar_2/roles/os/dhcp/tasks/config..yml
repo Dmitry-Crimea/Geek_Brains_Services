@@ -1,8 +1,0 @@
----
-
-- name: copy config file
-  template:
-    src: dhcp.conf.j2
-    dest: /etc/dhcp/dhcp.conf
-  when: " 'R2' in inventory_hostname "
-  notify: restart dhcp server

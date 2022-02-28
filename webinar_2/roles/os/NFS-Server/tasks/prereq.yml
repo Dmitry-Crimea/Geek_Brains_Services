@@ -1,12 +1,12 @@
 ---
 
-- name: Check if output directory exists
-  stat:
-    path: /home/it/"{{ item }}"
-  register: output_folder
-  loop:
-    - nfs_1
-    - nfs_2
+#- name: Check if output directory exists
+#  stat:
+#    path: /home/it/"{{ items }}"
+#    register: output_folder
+#  loop:
+#    - nfs_1
+#    - nfs_2
 
 - name: make directory nfs_1 and nfs_2
   block:
@@ -21,7 +21,7 @@
       loop:
         - nfs_1
         - nfs_2
-    when: output_folder is not exist
+#      when: output_folder.stat.exists == false
 
 
 

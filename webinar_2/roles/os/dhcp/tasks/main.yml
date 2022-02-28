@@ -2,3 +2,6 @@
 
 - name: install dhcp server
   import_tasks: install.yml
+
+- name: configure dhcp server
+  import_tasks: config.yml

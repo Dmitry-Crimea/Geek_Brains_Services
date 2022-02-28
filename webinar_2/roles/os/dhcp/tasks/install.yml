@@ -7,9 +7,4 @@
     update_cache: yes
   when: " 'R2' in inventory_hostname "
 
-- name: start dhcp server
-  service:
-    name: dhcpd
-    enabled: yes
-    state: started
-  when: " 'R2' in inventory_hostname "
+
