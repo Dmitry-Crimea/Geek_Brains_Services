@@ -3,7 +3,7 @@
   gather_facts: False
   roles:
     - os/NIC_teaming
-    - os/dhcp
+#    - os/dhcp
 #    - os/NFS-Server
 #    - os/firewalld
 

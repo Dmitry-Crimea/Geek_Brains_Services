@@ -1,30 +1,43 @@
 ---
 
-- name: copy config files
+- name: copying config files on R1
   block:
     - name: copy on R1
       template:
-        src: ifcfg-team0_r1.j2
+        src: R1/ifcfg-team0_r1.j2
         dest: "{{ team.dir }}/ifcfg-team0"
-      when: " 'R1' in inventory_hostname"
 
-    - name: copy slave interface
+    - name: copy slave interface ens37
       template:
-        src: ifcfg-team-slave-ens37_r1.j2
-        dest: "{{ team.dir }}/ifcfg-team-slave-ens37"
-      when: " 'R1' in inventory_hostname"
+        src: R1/ifcfg-ens37_r1.j2
+        dest: "{{ team.dir }}/ifcfg-ens37"
 
+    - name: copy slave interface ens38
+      template:
+        src: R1/ifcfg-ens38_r1.j2
+        dest: "{{ team.dir }}/ifcfg-ens38"
+
+  when: " 'R1' in inventory_hostname"
+
+
+- name: copying config files on R2
+  block:
     - name: copy on R2
       template:
-        src: ifcfg-team0_r2.j2
+        src: R2/ifcfg-team0_r2.j2
         dest: "{{ team.dir }}/ifcfg-team0"
-      when: " 'R2' in inventory_hostname"
 
-    - name: copy on R3
+    - name: copy slave interface ens37
       template:
-        src: ifcfg-team0_r3.j2
-        dest: "{{ team.dir }}/ifcfg-team0"
-      when: " 'R3' in inventory_hostname"
+        src: R2/ifcfg-ens37_r2.j2
+        dest: "{{ team.dir }}/ifcfg-ens37"
+
+    - name: copy slave interface ens38
+      template:
+        src: R2/ifcfg-ens38_r2.j2
+        dest: "{{ team.dir }}/ifcfg-ens38"
+
+  when: " 'R2' in inventory_hostname"
 
   notify: restart network service
 
