@@ -1,24 +1,23 @@
 ---
-- name: adding a firewall rules
-  block:
-    - name: allow icmp
-      firewalld:
-        zone: public
-        state: enabled
-        permanent: yes
-        icmp_block_inversion: no
+#- name: adding a firewall rules
+#  block:
+#    - name: allow icmp
+#      firewalld:
+#        zone: public
+#        state: enabled
+#        permanent: yes
+#        icmp_block_inversion: no
 
-    - name: add services into firewall
-      firewalld:
-        zone: public
-        service: "{{ items }}"
-        permanent: yes
-        state: enabled
-      loop:
-        - nfs
-        - mountd
-        - bind
-        - ospf
+#    - name: add services into firewall
+#      firewalld:
+#        zone: public
+#        rich_rule: "{{ item }}"
+#        permanent: yes
+#        state: enabled
+#        immediate: yes
+#      loop:
+#        - rule protocol=ospf
+
 
     - name: allow ospf
       firewalld:
@@ -30,7 +29,7 @@
         - 2049/tcp
         - 89/tcp
         - 111/tcp
-        - 20048/tcp
+        - 2048/tcp
       notify: reload firewalld
 
 
