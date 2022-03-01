@@ -1,18 +1,37 @@
 ---
-- name: adding a firewall rules
+
+- name: enable ports | allow ospf | allow dhcp
   block:
     - name: allow ospf
       firewalld:
         zone: public
-        port: "{{ items }}"
+        port: "{{ item }}"
         state: enabled
         permanent: yes
+        immediate: yes
       loop:
         - 2049/tcp
         - 89/tcp
         - 111/tcp
         - 2048/tcp
-      notify: reload firewalld
+
+    - name: allow ospf
+      firewalld:
+        rich_rule: rule protocol value="ospf" accept
+        zone: public
+        state: enabled
+        permanent: yes
+        immediate: yes
+
+    - name: allow dhcp
+      firewalld:
+        service: dhcp
+        zone: public
+        state: enabled
+        permanent: yes
+        immediate: yes
+
+  notify: reload firewalld
 
 
 

@@ -3,5 +3,5 @@
 - name: reload firewalld
   service:
     name: firewalld
-    state: reloaded
+    state: restarted
     enabled: yes
