@@ -1,7 +1,10 @@
 ---
 
-- import_tasks: install.yml
+- nmae: install firewall
+  import_tasks: install.yml
 
-- import_tasks: prereq.yml
+- name: prepare firewall
+  import_tasks: prereq.yml
 
-- import_tasks: config.yml
+- name: configure firewall
+  import_tasks: config.yml

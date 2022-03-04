@@ -3,6 +3,8 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+
+#########################################
 # firewall variables
 firewall:
   ports:
@@ -10,13 +12,18 @@ firewall:
     - 89/tcp
     - 111/tcp
     - 2048/tcp
+
   services:
     - http
     - https
     - dhcp
+
   rules:
     - rule protocol value="ospf" accept
+    - rule protocol value="icmp" accept
+    -
 
+##############################################
 # Teamd variables
 team:
   dir: /etc/sysconfig/network-scripts
@@ -25,6 +32,7 @@ team:
   ens37: ifcfg-ens37.j2
   ens38: ifcfg-ens38.j2
 
+##############################################
 # install packages
 packages:
     - epel-release

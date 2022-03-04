@@ -26,10 +26,6 @@
         immediate: yes
       loop: "{{ firewall.services }}"
 
-
-
-
-
   notify: restart firewalld
 
 
