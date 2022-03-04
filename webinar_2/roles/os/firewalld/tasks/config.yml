@@ -25,7 +25,7 @@
         immediate: yes
 
 
-  notify: reload firewalld
+  notify: restart firewalld
 
 
 
