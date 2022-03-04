@@ -4,37 +4,36 @@
   block:
     - name: copy on R1
       template:
-        src: R1/ifcfg-team0_r1.j2
+        src: "{{ team.team0_r1 }}"
         dest: "{{ team.dir }}/ifcfg-team0"
 
     - name: copy slave interface ens37
       template:
-        src: R1/ifcfg-ens37_r1.j2
+        src: "{{ team.ens37 }}"
         dest: "{{ team.dir }}/ifcfg-ens37"
 
     - name: copy slave interface ens38
       template:
-        src: R1/ifcfg-ens38_r1.j2
+        src: "{{ team.ens38 }}"
         dest: "{{ team.dir }}/ifcfg-ens38"
 
   when: " 'R1' in inventory_hostname"
-
 
 - name: copying config files on R2
   block:
     - name: copy on R2
       template:
-        src: R2/ifcfg-team0_r2.j2
+        src: "{{ team.team0_r2 }}"
         dest: "{{ team.dir }}/ifcfg-team0"
 
     - name: copy slave interface ens37
       template:
-        src: R2/ifcfg-ens37_r2.j2
+        src: "{{ team.ens37 }}"
         dest: "{{ team.dir }}/ifcfg-ens37"
 
     - name: copy slave interface ens38
       template:
-        src: R2/ifcfg-ens38_r2.j2
+        src: "{{ team.ens38 }}"
         dest: "{{ team.dir }}/ifcfg-ens38"
 
   when: " 'R2' in inventory_hostname"

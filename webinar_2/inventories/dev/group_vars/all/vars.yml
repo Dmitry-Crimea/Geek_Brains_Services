@@ -5,6 +5,8 @@ dir_2: nfs_2
 
 team:
   dir: /etc/sysconfig/network-scripts
-#  r1: /home/it/r1
-#  r2: /home/it/r2
-#  r3: /home/it/r3
+  team0_r1: ifcfg-team0_r1.j2
+  team0_r2: ifcfg-team0_r2.j2
+  ens37: ifcfg-ens37.j2
+  ens38: ifcfg-ens38.j2
+
