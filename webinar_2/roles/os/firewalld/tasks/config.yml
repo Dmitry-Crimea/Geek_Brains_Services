@@ -10,7 +10,7 @@
         permanent: yes
         immediate: yes
 
-    - name: allow ospf
+    - name: allow services
       firewalld:
         rich_rule: "{{ firewall.rules }}"
         state: enabled

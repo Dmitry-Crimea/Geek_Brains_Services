@@ -1,3 +1,7 @@
 ---
 
+- import_tasks: install.yml
+
+- import_tasks: prereq.yml
+
 - import_tasks: config.yml

@@ -1,0 +1,9 @@
+---
+
+
+- name: install the latest packages for firewalld
+  import_role:
+    name: common/install_packages
+  vars:
+    package_action: "present"
+    package_name: "firewalld"
