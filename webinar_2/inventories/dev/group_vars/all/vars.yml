@@ -4,6 +4,11 @@ dir_1: nfs_1
 dir_2: nfs_2
 
 
+########################################
+# DHCP variables
+dhcp:
+  conf: /etc/dhcp/dhcpd.conf
+
 #########################################
 # firewall variables
 firewall:
