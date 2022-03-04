@@ -3,10 +3,59 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+# firewalld service
+
+firewall:
+  ports:
+    - 2049/tcp
+    - 89/tcp
+    - 111/tcp
+    - 2048/tcp
+  services:
+    - dhcp
+    - http
+
+  rules:
+    - rule protocol value="ospf" accept
+
+# Configure nic-teaming
 team:
   dir: /etc/sysconfig/network-scripts
   team0_r1: ifcfg-team0_r1.j2
   team0_r2: ifcfg-team0_r2.j2
   ens37: ifcfg-ens37.j2
   ens38: ifcfg-ens38.j2
+
+# install packages
+packages:
+    - epel-release
+    - bash-completion
+    - bind-utils
+    - bzip2
+    - cloud-utils-growpart
+    - curl
+    - fio
+    - firewalld
+    - gdisk
+    - gzip
+    - iotop
+    - iperf3
+    - jq
+    - lshw
+    - lsof
+    - lz4
+    - nano
+    - nc
+    - net-tools
+    - procps-ng
+    - psmisc
+    - rsync
+    - tar
+    - tcpdump
+    - telnet
+    - traceroute
+    - tree
+    - unzip
+    - vim
+    - wget
 

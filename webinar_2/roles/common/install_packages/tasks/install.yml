@@ -1,0 +1,7 @@
+---
+
+- name: Install {{ packages }}
+  dnf:
+    name: "{{ packages }}"
+    state: present
+  tags: os
