@@ -14,6 +14,7 @@ firewall:
   services:
     - dhcp
     - http
+    - https
 
   rules:
     - rule protocol value="ospf" accept

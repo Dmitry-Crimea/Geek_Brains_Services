@@ -2,7 +2,7 @@
 
 - name: enable ports | allow ospf | allow dhcp
   block:
-    - name: allow ospf
+    - name: allow ports
       firewalld:
         zone: public
         port: "{{ firewall.ports }}"
@@ -13,10 +13,8 @@
     - name: allow ospf
       firewalld:
         rich_rule: "{{ firewall.rules }}"
-        zone: public
         state: enabled
         permanent: yes
-        immediate: yes
 
     - name: allow dhcp
       firewalld:
