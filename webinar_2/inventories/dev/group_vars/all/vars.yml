@@ -3,24 +3,21 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
-# firewalld service
-
+# firewall variables
 firewall:
   ports:
     - 2049/tcp
     - 89/tcp
     - 111/tcp
     - 2048/tcp
-
   services:
-    - dhcp
     - http
     - https
-
+    - dhcp
   rules:
     - rule protocol value="ospf" accept
 
-# Configure nic-teaming
+# Teamd variables
 team:
   dir: /etc/sysconfig/network-scripts
   team0_r1: ifcfg-team0_r1.j2
