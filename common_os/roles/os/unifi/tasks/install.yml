@@ -1,0 +1,7 @@
+---
+
+- name: Install {{ unifi_packages }}
+  yum:
+    name: "{{ unifi_packages }}"
+    state: present
+  when: " 'unifi' in inventory_hostname "

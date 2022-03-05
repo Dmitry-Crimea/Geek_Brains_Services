@@ -71,3 +71,25 @@ packages:
     - vim
     - wget
 
+#################################################
+# UniFi
+
+unifi:
+  opt: /opt/UniFi/data
+  var: /var/opt/UniFi/data
+  download: /home/unifi/download
+  url: https://dl.ui.com/unifi/5.12.35/unifi_sysvinit_all.deb
+
+unifi_packages:
+  - lsb
+  - wget
+  - uzip
+  - vim
+  - java
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+[Unit]
+Description=UniFi
+After=syslog.target
+After=network.target
+[Service]
+Type=simple
+User=unifi
+Group=unifi
+ExecStart=/usr/bin/java -jar /opt/UniFi/lib/ace.jar start
+ExecStop=/usr/bin/java -jar /opt/UniFi/lib/ace.jar stop
+TimeoutSec=300
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+---
+
+- name: make a directory
+  impart_tasks: prereq.yml
+
+- name: install unifi
+  import_tasks: install.yml
+
+- name: configure unifi
+  import_tasks: config.yml
