@@ -1,0 +1,19 @@
+acl "trusted" {
+        127.0.0.1;     # ms1
+        192.168.1.41;  # ns2
+        192.168.1.51;  # host1
+        192.168.1.52;  # host2
+};
+
+options {
+        listen-on port 53 { 127.0.0.1; 192.168.1.33; };
+#        listen-on-v6 port 53 { ::1; };
+
+options {
+...
+        allow-transfer {192.168.1.41; };
+...
+        allow-query { trusted; };
+...
+
+include "/etc/named/named.conf.local";

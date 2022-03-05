@@ -3,11 +3,18 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+########################################
+
+dns:
+  etc: /etc
+  named: /etc/named
+  zones: /etc/named/zones
+
 
 ########################################
 # DHCP variables
 dhcp:
-  conf: /etc/dhcp/dhcpd.conf
+  conf: /etc/dhcp
 
 #########################################
 # firewall variables

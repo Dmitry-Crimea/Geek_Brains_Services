@@ -3,7 +3,7 @@
 - name: copy config file
   template:
     src: dhcp.conf.j2
-    dest: "{{ dhcp.conf }}"
+    dest: "{{ dhcp.conf }}/dhcpd.conf"
   when: " 'R2' in inventory_hostname "
   notify: restart dhcp server
 
