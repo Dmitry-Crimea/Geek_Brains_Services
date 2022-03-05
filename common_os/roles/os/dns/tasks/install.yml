@@ -1,0 +1,10 @@
+---
+
+- name: Install bind-utils
+  import_role:
+    name: common/install_packages
+  vars:
+    package_action: "present"
+    package_name: "bind-utils"
+  when: " 'R3' in inventory_hostname"
+
