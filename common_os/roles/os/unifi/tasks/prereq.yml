@@ -15,5 +15,6 @@
   get_url:
     url: "{{ unifi.url }}"
     dest: "{{ unifi.download }}"
+    remote_src: yes
 
 
