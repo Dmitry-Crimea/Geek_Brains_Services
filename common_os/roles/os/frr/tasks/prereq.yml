@@ -19,7 +19,7 @@
 
     - name: Download frr
       get_url:
-        url: https://github.com/FRRouting/frr/releases/download/frr-7.0/frr-7.0-01.el7.webinar_2.x86_64.rpm
+        url: https://github.com/FRRouting/frr/releases/download/frr-7.0/frr-7.0-01.el7.common_os.x86_64.rpm
         dest: /home/it/frr
 
 
