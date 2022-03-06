@@ -1,2 +1,7 @@
 ---
 
+- name: make zones directory
+  files:
+    path: "{{ dns.zones }}"
+    state: directory
+    remote_src: yes

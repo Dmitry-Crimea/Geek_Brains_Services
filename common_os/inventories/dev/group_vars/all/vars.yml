@@ -4,7 +4,7 @@ dir_1: nfs_1
 dir_2: nfs_2
 
 ########################################
-
+# variables for DNS
 dns:
   etc: /etc
   named: /etc/named
@@ -29,6 +29,7 @@ firewall:
     - http
     - https
     - dhcp
+    - dns
 
   rules:
     - rule protocol value="ospf" accept
@@ -77,6 +78,7 @@ packages:
     - unzip
     - vim
     - wget
+    - dig
 
 #################################################
 # UniFi

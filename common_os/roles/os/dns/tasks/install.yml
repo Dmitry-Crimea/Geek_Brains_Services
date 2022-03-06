@@ -5,6 +5,9 @@
     name: common/install_packages
   vars:
     package_action: "present"
-    package_name: "bind-utils"
-  when: " 'R3' in inventory_hostname"
+    package_name: "{{ item }}"
+  loop:
+    - "bind-utils"
+    - "dig 6"
+
 
