@@ -1,13 +1,13 @@
 ---
 
 - name: Install bind-utils
-  import_role:
+  include_role:
     name: common/install_packages
   vars:
     package_action: "present"
     package_name: "{{ item }}"
   loop:
     - "bind-utils"
-    - "dig 6"
+
 
 
