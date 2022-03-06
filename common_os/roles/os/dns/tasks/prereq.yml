@@ -4,3 +4,6 @@
   file:
     path: "{{ dns.zones }}"
     state: directory
+    mode: 0755
+    owner: "{{ dns.user }}"
+    group: "{{ dns.group }}"

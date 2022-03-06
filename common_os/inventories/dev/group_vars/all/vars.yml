@@ -6,6 +6,8 @@ dir_2: nfs_2
 ########################################
 # variables for DNS
 dns:
+  user: root
+  group: root
   etc: /etc
   named: /etc/named
   zones: /etc/named/zones
