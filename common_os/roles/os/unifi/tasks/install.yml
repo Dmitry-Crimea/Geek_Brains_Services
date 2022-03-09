@@ -1,14 +1,30 @@
 ---
 
-- name: Install {{ unifi_packages }}
-  yum:
-    name: "{{ unifi_packages }}"
-    state: present
+- name: Install unifi
+  block:
+    - name: Install {{ unifi_packages }}
+      yum:
+        name: "{{ unifi_packages }}"
+        state: present
 
-- name: unpack unifi package
-  unarchive:
-    src:
-    dest: /opt
+    - name: unpack unifi package
+      unarchive:
+        src:
+        dest: /opt
+  tags: unifi
+
+- name: install mongodb
+  block:
+    - name: add 10gen repo file
+      template:
+        src: repo.j2
+        dest: /etc/yum.repos.d/10gen.repo
+
+    - name: install mongodb-org
+      yum:
+       name: mongo-10gen-server
+       state: present
+  tags: mongodb
 
 
 

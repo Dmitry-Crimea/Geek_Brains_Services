@@ -4,10 +4,20 @@
   template:
     src: unifi.service.j2
     dest: "{{ unifi.unifi }}/unifi.service"
+  tags: unifi
 
-- name: start unifi service
+- name: configure mongodb
+  template:
+    src: mongod.conf.j2
+    dest: /etc/mongod.conf
+  tags: mongodb
+
+- name: start unifi and mongodb service
   service:
-    name: unifi
+    name: "{{ item }}"
     state: started
     enabled: yes
+  loop:
+    - unifi
+    - mongod
 

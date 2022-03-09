@@ -12,7 +12,6 @@ dns:
   named: /etc/named
   zones: /etc/named/zones
 
-
 ########################################
 # DHCP variables
 dhcp:
@@ -43,7 +42,6 @@ firewall:
   rules:
     - rule protocol value="ospf" accept
     - rule protocol value="icmp" accept
-    -
 
 ##############################################
 # Teamd variables
@@ -88,7 +86,6 @@ packages:
     - vim
     - wget
 
-
 #################################################
 # UniFi
 
@@ -107,10 +104,4 @@ unifi_packages:
   - uzip
   - vim
   - java
-
-
-
-
-
-
 
