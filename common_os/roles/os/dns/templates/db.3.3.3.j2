@@ -1,0 +1,14 @@
+$TTL    604800
+@       IN      SOA     example.com. admin.example.com. (
+                       20210806         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; name servers
+      IN      NS      router3.example.com.
+
+; PTR Records
+3     IN      PTR     router3.example.com.
+
+

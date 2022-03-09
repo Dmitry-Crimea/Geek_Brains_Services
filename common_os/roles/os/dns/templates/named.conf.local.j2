@@ -1,0 +1,9 @@
+zone "example.com" {
+    type master;
+    file "/etc/named/zones/db.example.com"; #файл конфига зоны
+};
+
+zone "3.3.3.in-addr.arpa" {
+    type master;
+    file "/etc/named/zones/db.3.3.3";  #файл конфига обратной зоны для 3.3.3.3/32
+    };

@@ -1,0 +1,35 @@
+---
+
+- name: configure and start dns
+  block:
+    - name: copy named_conf
+      template:
+        src: named.conf.j2
+        dest: "{{ dns.etc }}/named.conf"
+
+
+    - name: copy named.conf.local
+      template:
+        src: named.conf.local.j2
+        dest: "{{ dns.named }}/named.conf.local"
+
+
+    - name: copy db.example.com
+      template:
+        src: db.example.com.j2
+        dest: "{{ dns.zones }}/db.example.com"
+
+    - name: copy db.example.com
+      template:
+        src: db.example.com.j2
+        dest: "{{ dns.zones }}/db.3.3.3"
+
+  notify: restart dns
+
+
+
+- name: start named
+  service:
+    name: named
+    enabled: yes
+    state: started

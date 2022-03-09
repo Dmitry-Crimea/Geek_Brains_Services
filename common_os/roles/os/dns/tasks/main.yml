@@ -1,0 +1,14 @@
+---
+
+- name: install DNS Server
+  block:
+    - name: prepare to instal named
+      import_tasks: prereq.yml
+
+    - name: install bind-utils
+      import_tasks: install.yml
+
+    - name: configure dns
+      import_tasks: config.yml
+
+  when: "'R3' in inventory_hostname"
