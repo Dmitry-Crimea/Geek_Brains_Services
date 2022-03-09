@@ -4,6 +4,14 @@
   yum:
     name: "{{ unifi_packages }}"
     state: present
-  when: " 'unifi' in inventory_hostname "
+
+- name: unpack unifi package
+  unarchive:
+    src:
+    dest: /opt
+
+
+
+
 
 

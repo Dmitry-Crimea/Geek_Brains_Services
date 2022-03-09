@@ -17,6 +17,13 @@ firewall:
     - 89/tcp
     - 111/tcp
     - 2048/tcp
+    - 8080/tcp
+    - 8443/tcp
+    - 17088/tcp
+    - 17089/tcp
+    - 17090/tcp
+    - 17091/tcp
+    - 17092/tcp
 
   services:
     - http
@@ -75,10 +82,13 @@ packages:
 # UniFi
 
 unifi:
+  unifi: /var/opt/UniFi
   opt: /opt/UniFi/data
   var: /var/opt/UniFi/data
   download: /home/unifi/download
   url: https://dl.ui.com/unifi/5.12.35/unifi_sysvinit_all.deb
+  user: unifi
+  group: unifi
 
 unifi_packages:
   - lsb

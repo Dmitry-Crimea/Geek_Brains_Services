@@ -1,20 +1,31 @@
 ---
 
+- name: Create user with administrators rights
+  block:
+    - name: Create user on a remote host
+      user:
+        name: "{{ unifi.user }}"
+        groups: "{{ unifi.group }}"
+        shell: /bin/false
+
 - name: make a direcory
   file:
     path: "{{ item }}"
     state: directory
     remote_src: yes
+    owner: "{{ unifi.user }}"
+    group: "{{ unifi.group }}"
   loop:
     - "{{ unifi.opt }}"
     - "{{ unifi.var }}"
     - "{{ unifi.download }}"
-  when: " 'unifi' in inventory_hostname "
 
 - name: download unifi package
   get_url:
     url: "{{ unifi.url }}"
     dest: "{{ unifi.download }}"
     remote_src: yes
+
+
 
 

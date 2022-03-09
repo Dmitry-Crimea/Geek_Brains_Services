@@ -1,0 +1,13 @@
+---
+
+- name: copy config file
+  template:
+    src: unifi.service.j2
+    dest: "{{ unifi.unifi }}/unifi.service"
+
+- name: start unifi service
+  service:
+    name: unifi
+    state: started
+    enabled: yes
+

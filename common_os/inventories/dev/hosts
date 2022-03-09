@@ -4,3 +4,5 @@ R1 ansible_host=178.34.157.230 ansible_port=30022
 R2 ansible_host=178.34.157.230 ansible_port=30023
 R3 ansible_host=178.34.157.230 ansible_port=30024
 
+unifi
+
