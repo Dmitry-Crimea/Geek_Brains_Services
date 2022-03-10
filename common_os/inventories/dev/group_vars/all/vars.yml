@@ -100,7 +100,7 @@ packages:
     - gzip
     - iotop
     - iperf3
-    - jq
+#    - jq
     - lshw
     - lsof
     - lz4
