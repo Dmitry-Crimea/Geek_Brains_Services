@@ -2,7 +2,7 @@
 
 - name: Install package
   import_role:
-    name: /commoninstall_packages
+    name: common/install_packages
   vars:
     package_action: "install"
     package_list:

@@ -11,7 +11,7 @@
 
 - name: install grafana
   import_role:
-    name: os/package
+    name: common/install_packages
   vars:
     package_action: "install"
     package_list:

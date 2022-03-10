@@ -3,6 +3,39 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+
+root_dir: "/data/nginx/html"
+
+domain: office.local
+
+###################################################
+product: "lenovo"
+city: "home"
+provider: "local"
+provider_type: "laptop"
+datacenter: "kdt-{{ provider }}-{{ city }}-{{ provider_type }}"
+architecture: linux-amd64
+logrotate_dir: /etc/logrotate.d
+systemd_unitdir: /usr/lib/systemd/system
+env: "local"
+
+###################################################
+# Prometheus variables
+
+prometheus:
+  user: prometheus
+  group: prometheus
+  version: 2.32.1
+  remove_src: true
+  dir: "/etc/prometheus"
+  targets_dir: "/etc/prometheus/targets"
+  alerts_dir: "/etc/prometheus/alerts"
+  bin_sources: "/data/prometheus-sources"
+  download_dir: "/data/downloads"
+  log: /var/log/prometheus/prometheus.log
+  storage: /home/prometheus/data
+  retention_time: 180d
+
 ########################################
 # variables for DNS
 dns:
