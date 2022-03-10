@@ -1,0 +1,25 @@
+---
+
+- name: Install package
+  import_role:
+    name: /commoninstall_packages
+  vars:
+    package_action: "install"
+    package_list:
+      - "logrotate"
+
+- name: Copy /etc/logrotate.conf file
+  template:
+    src: logrotate.conf.j2
+    dest: /etc/logrotate.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy /etc/cron.hourly/logrotate file
+  template:
+    src: logrotate.cron.hourly.j2
+    dest: /etc/cron.hourly/logrotate
+    owner: root
+    group: root
+    mode: 0700

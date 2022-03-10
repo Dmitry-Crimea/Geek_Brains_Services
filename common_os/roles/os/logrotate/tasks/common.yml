@@ -1,0 +1,17 @@
+---
+
+- name: Copy tmp configuration file
+  template:
+    src: "tmp.logrotate.j2"
+    dest: "{{ logrotate_defaults.config_dir }}/tmp"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy syslog configuration file
+  template:
+    src: "syslog.logrotate.j2"
+    dest: "{{ logrotate_defaults.config_dir }}/syslog"
+    owner: root
+    group: root
+    mode: 0644

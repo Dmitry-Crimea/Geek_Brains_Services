@@ -1,0 +1,4 @@
+---
+
+logrotate_defaults:
+  config_dir: /etc/logrotate.d

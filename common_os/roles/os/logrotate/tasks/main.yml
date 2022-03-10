@@ -1,0 +1,9 @@
+---
+
+- name: Install logrotate
+  include_tasks: install.yml
+  tags: ['logrotate']
+
+- name: Copy common configuration files
+  include_tasks: common.yml
+  tags: ['logrotate']

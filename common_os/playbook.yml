@@ -6,5 +6,9 @@
 #    - os/NIC_teaming
 #    - os/dhcp
 #    - os/NFS-Server
-    - os/dns
+#    - os/dns
+    - monitoring/prometheus
+    - monitoring/grafana
+    - os/logrotate
+
 
