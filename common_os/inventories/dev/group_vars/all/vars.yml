@@ -25,7 +25,7 @@ env: "local"
 prometheus:
   user: prometheus
   group: prometheus
-  version: 2.32.1
+  version: 2.33.5
   remove_src: true
   dir: "/etc/prometheus"
   targets_dir: "/etc/prometheus/targets"
