@@ -1,0 +1,25 @@
+---
+
+- name: Ensure that grafana service unit file exists.
+  stat:
+    path: "{{ systemd_unitdir }}/{{ grafana_defaults.service }}"
+  register: grafana_service
+  listen: restart grafana
+
+- name: Stop docker
+  systemd:
+    name: "{{ grafana_defaults.service }}"
+    daemon_reload: yes
+    state: stopped
+    enabled: no
+  listen: restart grafana
+  when: grafana_service.stat.exists
+
+- name: Start docker
+  systemd:
+    name: "{{ grafana_defaults.service }}"
+    daemon_reload: yes
+    state: started
+    enabled: yes
+  listen: restart grafana
+  when: grafana_service.stat.exists
