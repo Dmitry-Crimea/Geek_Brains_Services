@@ -3,11 +3,11 @@
 - name: Locate grafana
   copy:
     src: "{{ item }}"
-    dest: "{{ grafana.download_dir | default(grafana_defaults.download_dir) }}"
+    dest: "{{ grafana.download_dir | defaults(grafana_defaults.download_dir) }}"
     mode: 0755
 #    remote_src: true
   with_items:
-    - "{{ grafana.rpm | default(grafana_defaults.rpm) }}.rpm"
+    - "{{ grafana.rpm | defaults(grafana_defaults.rpm) }}.rpm"
 
 - name: install grafana
   import_role:
@@ -15,4 +15,4 @@
   vars:
     package_action: "install"
     package_list:
-      - "{{ grafana.download_dir | default(grafana_defaults.download_dir) }}/{{ grafana.rpm | default(grafana_defaults.rpm) }}.rpm"
+      - "{{ grafana.download_dir | defaults(grafana_defaults.download_dir) }}/{{ grafana.rpm | defaults(grafana_defaults.rpm) }}.rpm"

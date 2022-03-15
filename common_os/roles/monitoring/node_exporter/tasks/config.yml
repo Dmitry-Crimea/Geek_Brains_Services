@@ -31,7 +31,7 @@
 
 - name: File processing (smartmon)
   block:
-    - name: Sets default ACL for node on data dir
+    - name: Sets defaults ACL for node on data dir
       acl:
         path: "{{ node_exporter_data }}"
         etype: other

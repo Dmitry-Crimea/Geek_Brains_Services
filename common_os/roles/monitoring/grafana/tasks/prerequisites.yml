@@ -4,25 +4,25 @@
 
 - name: grafana group
   group:
-    name: "{{ grafana.group | default(grafana_defaults.group) }}"
+    name: "{{ grafana.group | defaults(grafana_defaults.group) }}"
     state: present
 
 - name: grafana user
   user:
-    name: "{{ grafana.user | default(grafana_defaults.user) }}"
-    group: "{{ grafana.group | default(grafana_defaults.group) }}"
+    name: "{{ grafana.user | defaults(grafana_defaults.user) }}"
+    group: "{{ grafana.group | defaults(grafana_defaults.group) }}"
 
 - name: Add grafana directories
   file:
     name: "{{ item }}"
-    owner: "{{ grafana.user | default(grafana_defaults.user) }}"
-    group: "{{ grafana.group | default(grafana_defaults.group) }}"
+    owner: "{{ grafana.user | defaults(grafana_defaults.user) }}"
+    group: "{{ grafana.group | defaults(grafana_defaults.group) }}"
     recurse: yes
     state: directory
   loop:
-    - "{{ grafana.dir | default(grafana_defaults.dir) }}"
-    - "{{ grafana.download_dir | default(grafana_defaults.download_dir) }}"
-    - "{{ grafana.plugins_dir | default(grafana_defaults.plugins_dir) }}"
+    - "{{ grafana.dir | defaults(grafana_defaults.dir) }}"
+    - "{{ grafana.download_dir | defaults(grafana_defaults.download_dir) }}"
+    - "{{ grafana.plugins_dir | defaults(grafana_defaults.plugins_dir) }}"
     - "{{ grafana_defaults.log_dir }}"
     - "{{ grafana_defaults.lib_dir }}"
 

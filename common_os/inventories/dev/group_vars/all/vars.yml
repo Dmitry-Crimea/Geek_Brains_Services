@@ -9,6 +9,13 @@ root_dir: "/data/nginx/html"
 domain: office.local
 
 ###################################################
+# Zabbix variables
+zabbix:
+  server_packages:
+    - zabbix-server-mysql
+    - zabbix-get
+
+###################################################
 product: "lenovo"
 city: "home"
 provider: "local"

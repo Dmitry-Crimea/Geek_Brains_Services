@@ -1,0 +1,9 @@
+---
+
+- name: install firewall
+  include_role:
+    name: os/firewalld
+
+- name: install zabbix-server
+  yum:
+    name: "{{  }}"
