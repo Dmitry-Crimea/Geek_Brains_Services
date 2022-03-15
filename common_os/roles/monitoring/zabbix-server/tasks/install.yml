@@ -6,4 +6,4 @@
 
 - name: install zabbix-server
   yum:
-    name: "{{  }}"
+    name: "{{ zabbix.server_packages }}"
