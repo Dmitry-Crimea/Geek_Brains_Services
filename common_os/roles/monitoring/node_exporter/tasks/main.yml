@@ -33,7 +33,7 @@
     - 'node_exporter::installation'
 
 - name: 'INSTALL | Configurations'
-  import_tasks: "config.yml"
+  import_tasks: "user.yml"
   tags:
     - 'node_exporter'
     - 'node_exporter::config'

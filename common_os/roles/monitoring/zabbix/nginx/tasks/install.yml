@@ -1,0 +1,26 @@
+---
+
+- name: install EPEL repo
+  yum:
+    name: epel-release
+    state: present
+    update_cache: yes
+
+- name: install and start NGINX
+  block:
+    - name: install NGINX
+      yum:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: start NGINX
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+ - name: install PHP-FPM
+   include_role:
+
+

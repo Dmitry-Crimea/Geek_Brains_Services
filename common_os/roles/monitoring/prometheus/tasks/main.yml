@@ -14,7 +14,7 @@
         - 'prometheus::installation'
 
     - name: 'INSTALL | Configurations'
-      import_tasks: "config.yml"
+      import_tasks: "user.yml"
       tags:
         - 'prometheus'
         - 'prometheus::config'

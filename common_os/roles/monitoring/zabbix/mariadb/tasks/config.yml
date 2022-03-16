@@ -1,0 +1,8 @@
+---
+
+- name: Create DB for Zabbix
+  block:
+    - name: Create DB for Zabbix
+      mysql_db:
+        name: "{{ zabbix.db_name }}"
+        state: present

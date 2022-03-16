@@ -1,0 +1,10 @@
+---
+
+- name: 'INSTALL | install MariaDB'
+  import_tasks: install.yml
+
+- name: 'CREATE_DB | create DB for Zabbix'
+  import_tasks: config.yml
+
+- name: 'CREATE_USER | create user for Zabbix'
+  import_tasks: user.yml

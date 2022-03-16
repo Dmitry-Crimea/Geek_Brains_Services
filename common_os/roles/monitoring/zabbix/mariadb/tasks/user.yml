@@ -1,0 +1,16 @@
+---
+
+- name: Create DB user for Zabbix
+  block:
+    - name: Removes anonymous user account for localhost
+      mysql_user:
+        name: ''
+        host: all
+        state: absent
+
+    - name: Create database user with name 'bob' and password '12345' with all database privileges
+      community.mysql.mysql_user:
+        name: "{{ zabbix.db_user }}"
+        password: "{{ zabbix.db_password }}"
+        priv: '*.*:ALL'
+        state: present

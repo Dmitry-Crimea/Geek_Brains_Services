@@ -4,4 +4,4 @@
   import_tasks: install.yml
 
 - name: copy template
-  import_tasks: config.yml
+  import_tasks: user.yml

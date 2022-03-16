@@ -14,7 +14,7 @@
         - 'grafana::install'
 
     - name: 'INSTALL | Configurations'
-      import_tasks: "config.yml"
+      import_tasks: "user.yml"
       tags:
             - 'grafana'
             - 'grafana::config'

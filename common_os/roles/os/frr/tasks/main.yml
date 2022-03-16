@@ -6,4 +6,4 @@
 - import_tasks: install.yml
   tags: ['frr']
 
-- import_tasks: config.yml
+- import_tasks: user.yml

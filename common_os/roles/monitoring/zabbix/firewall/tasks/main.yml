@@ -1,0 +1,11 @@
+---
+
+- name: install firewall
+  include_role: os/firewalld
+
+- name: configurate SELinux
+  block:
+    - name: Disable SElinux
+      selinux:
+        state: disabled
+

@@ -7,4 +7,4 @@
   import_tasks: prereq.yml
 
 - name: configure firewall
-  import_tasks: config.yml
+  import_tasks: user.yml

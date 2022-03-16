@@ -3,8 +3,12 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+##################################################
+# NGINX variables
+nginx:
+  html_dir: "/data/nginx/html"
+  conf_dir: "/etc/nginx/"
 
-root_dir: "/data/nginx/html"
 
 domain: office.local
 

@@ -8,5 +8,5 @@
       import_tasks: install.yml
 
     - name: configure unifi
-      import_tasks: config.yml
+      import_tasks: user.yml
   when: " 'unifi' in inventory_hostname"
