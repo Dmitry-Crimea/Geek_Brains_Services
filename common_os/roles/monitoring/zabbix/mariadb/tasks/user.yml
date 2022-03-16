@@ -8,8 +8,8 @@
         host: all
         state: absent
 
-  ---
-- name: Ensure MySQL users are present.
+
+- name: Ensure MySQL users are present
   mysql_user:
     name: "{{ item.name }}"
     host: "{{ item.host | default('localhost') }}"

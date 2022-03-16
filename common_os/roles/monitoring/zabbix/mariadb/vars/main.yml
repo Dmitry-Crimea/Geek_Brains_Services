@@ -1,5 +1,5 @@
 # Databases.
-mysql_databases: []
+mysql_databases:
    - name: zabbix
      collation: utf8_general_ci
      encoding: utf8
@@ -7,8 +7,8 @@ mysql_databases: []
      state: present
 
 # Users.
-mysql_users: []
+mysql_users:
    - name: zabbix
      host: 127.0.0.1
      password: zabbixpassword
-     priv: *.*:ALL
+     priv: '*.* :ALL'

@@ -1,7 +1,8 @@
 ---
 
 - name: install firewall
-  include_role: os/firewalld
+  include_role:
+    name: os/firewalld
 
 - name: configurate SELinux
   block:
