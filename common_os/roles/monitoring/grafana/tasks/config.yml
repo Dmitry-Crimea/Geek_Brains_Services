@@ -29,9 +29,9 @@
     chdir: "{{ grafana_defaults.plugins_dir }}"
   register: installed_plugins
 
-- name: Install absent plugins
-  include_tasks: "install_plugins.yml"
-  loop: "{{ grafana_defaults.plugins_list }}"
+#- name: Install absent plugins
+#  include_tasks: "install_plugins.yml"
+#  loop: "{{ grafana_defaults.plugins_list }}"
 
 - name: Add grafana directories
   file:

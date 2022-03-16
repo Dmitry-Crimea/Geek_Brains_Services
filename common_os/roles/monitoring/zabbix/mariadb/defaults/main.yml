@@ -1,0 +1,7 @@
+# Databases.
+mysql_databases: []
+   - name: zabbix
+     collation: utf8_general_ci
+     encoding: utf8
+     replicate: 1
+     state: present

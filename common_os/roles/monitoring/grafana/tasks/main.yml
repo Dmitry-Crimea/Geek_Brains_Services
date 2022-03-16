@@ -1,5 +1,6 @@
 ---
-- name: install grafana server
+
+- name: install grafana
   block:
     - name: 'INSTALL | Check grafana prerequisites'
       import_tasks: "prerequisites.yml"

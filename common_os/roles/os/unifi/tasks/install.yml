@@ -1,32 +1,48 @@
 ---
 
-- name: Install unifi
-  block:
-    - name: Install {{ unifi_packages }}
-      yum:
-        name: "{{ unifi_packages }}"
-        state: present
+- name: Add Unifi {{ unifi_version }} Source
+  template:
+    src: 100-ubnt-unifi.list.j2
+    dest: /etc/apt/sources.list.d/100-ubnt-unifi.list
 
-    - name: unpack unifi package
-      unarchive:
-        src:
-        dest: /opt
-  tags: unifi
+- name: Add Unifi {{ unifi_version }} GPG Key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 06E85760C0A52C50
+    state: present
+  register: result
+  until: result is success
+  retries: 5
+  delay: 5
 
-- name: install mongodb
-  block:
-    - name: add 10gen repo file
-      template:
-        src: repo.j2
-        dest: /etc/yum.repos.d/10gen.repo
+- name: Install Unifi
+  apt:
+    name: "unifi={{ unifi_version }}*"
+    state: present
+    update_cache: true
+  register: result
+  until: result is success
+  retries: 5
+  delay: 5
 
-    - name: install mongodb-org
-      yum:
-       name: mongo-10gen-server
-       state: present
-  tags: mongodb
+- name: 'install | add mongodb 3.6 repo key'
+  ansible.builtin.apt_key:
+    url:   'https://www.mongodb.org/static/pgp/server-3.6.asc'
+    state: 'present'
 
+- name: 'install | add mongodb 3.6 repo'
+  ansible.builtin.apt_repository:
+    repo:     'deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/3.6 main'
+    filename: 'mongodb'
+    state:    'present'
+    update_cache: true
 
+- name: 'install | add openjdk8 stretch repo'
+  apt_repository:
+    repo:     'deb http://deb.debian.org/debian stretch main'
+    filename: 'openjdk-stretch'
+    state:    'present'
+    update_cache: true
 
 
 

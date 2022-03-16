@@ -34,6 +34,15 @@ nginx:
 
 domain: office.local
 
+##################################################
+# UniFi variables
+
+unifi_version: 5.12.35
+unifi_services: unifi.service
+unifi_mongodb_services: mongod.service
+
+
+
 ###################################################
 # Zabbix variables
 zabbix:
@@ -174,10 +183,4 @@ unifi:
   user: unifi
   group: unifi
 
-unifi_packages:
-  - lsb
-  - wget
-  - uzip
-  - vim
-  - java
 

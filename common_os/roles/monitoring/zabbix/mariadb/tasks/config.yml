@@ -2,7 +2,9 @@
 
 - name: Create DB for Zabbix
   block:
-    - name: Create DB for Zabbix
+    - name: Create DB {{ item.name }} for Zabbix
       mysql_db:
-        name: "{{ zabbix.db_name }}"
-        state: present
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('present') }}"
+        encoding: "{{ item.encoding | default('utf8') }}"
+        collation: "{{ item.collation | default('utf8_general_ci') }}"

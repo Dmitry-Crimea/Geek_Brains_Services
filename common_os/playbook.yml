@@ -7,8 +7,11 @@
 #    - os/dhcp
 #    - os/NFS-Server
 #    - os/dns
-    - monitoring/prometheus
-    - monitoring/grafana
-    - os/logrotate
+#    - monitoring/prometheus
+#    - monitoring/grafana
+#    - os/logrotate
+    - os/unifi
+
+
 
 
