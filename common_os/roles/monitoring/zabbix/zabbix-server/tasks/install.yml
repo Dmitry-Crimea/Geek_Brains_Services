@@ -7,3 +7,5 @@
 - name: install zabbix-server
   yum:
     name: "{{ zabbix.server_packages }}"
+    state: present
+    update_cache: yes

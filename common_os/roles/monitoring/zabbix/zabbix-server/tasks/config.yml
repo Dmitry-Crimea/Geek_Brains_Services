@@ -1,0 +1,7 @@
+---
+
+-  name: copy conf file
+   template:
+     src: zabbix_server.conf.j2
+     dest: /etc/zabbix_server.conf
+     owner: root

@@ -16,4 +16,3 @@
     password: "{{ item.password }}"
     priv: "{{ item.priv | default('*.*:ALL') }}"
   loop: "{{ mysql_users }}"
-  no_log: true
