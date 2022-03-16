@@ -75,7 +75,7 @@ dhcp:
 firewall:
   ports:
     - 2049/tcp
-    - 89/tcp
+    - 80/tcp
     - 111/tcp
     - 2048/tcp
     - 8080/tcp
@@ -85,6 +85,7 @@ firewall:
     - 17090/tcp
     - 17091/tcp
     - 17092/tcp
+    - 9000/tcp
 
   services:
     - http
