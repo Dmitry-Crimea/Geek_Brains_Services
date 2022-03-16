@@ -12,10 +12,10 @@
 - name: Copy configuration file
   template:
     src: "{{ item }}.j2"
-    dest: "{{ grafana.dir | defaults(grafana_defaults.dir) }}/{{ item }}"
+    dest: "{{ grafana.dir | vars(grafana_defaults.dir) }}/{{ item }}"
     mode: 0644
-    owner: "{{ grafana.user | defaults(grafana_defaults.user) }}"
-    group: "{{ grafana.group | defaults(grafana_defaults.group) }}"
+    owner: "{{ grafana.user | vars(grafana_defaults.user) }}"
+    group: "{{ grafana.group | vars(grafana_defaults.group) }}"
   with_items:
     - grafana.ini
   notify: restart grafana
@@ -36,14 +36,14 @@
 - name: Add grafana directories
   file:
     name: "{{ item }}"
-    owner: "{{ grafana.user | defaults(grafana_defaults.user) }}"
-    group: "{{ grafana.group | defaults(grafana_defaults.group) }}"
+    owner: "{{ grafana.user | vars(grafana_defaults.user) }}"
+    group: "{{ grafana.group | vars(grafana_defaults.group) }}"
     recurse: yes
     state: directory
   loop:
-    - "{{ grafana.dir | defaults(grafana_defaults.dir) }}"
-    - "{{ grafana.download_dir | defaults(grafana_defaults.download_dir) }}"
-    - "{{ grafana.plugins_dir | defaults(grafana_defaults.plugins_dir) }}"
+    - "{{ grafana.dir | vars(grafana_defaults.dir) }}"
+    - "{{ grafana.download_dir | vars(grafana_defaults.download_dir) }}"
+    - "{{ grafana.plugins_dir | vars(grafana_defaults.plugins_dir) }}"
     - "{{ grafana_defaults.log_dir }}"
     - "{{ grafana_defaults.lib_dir }}"
 
