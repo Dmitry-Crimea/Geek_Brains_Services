@@ -8,9 +8,12 @@
         host: all
         state: absent
 
-    - name: Create database user with name 'bob' and password '12345' with all database privileges
-      community.mysql.mysql_user:
-        name: "{{ zabbix.db_user }}"
-        password: "{{ zabbix.db_password }}"
-        priv: '*.*:ALL'
-        state: present
+  ---
+- name: Ensure MySQL users are present.
+  mysql_user:
+    name: "{{ item.name }}"
+    host: "{{ item.host | default('localhost') }}"
+    password: "{{ item.password }}"
+    priv: "{{ item.priv | default('*.*:ALL') }}"
+  loop: "{{ mysql_users }}"
+  no_log: true

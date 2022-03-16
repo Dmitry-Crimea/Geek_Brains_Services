@@ -8,3 +8,4 @@
         state: "{{ item.state | default('present') }}"
         encoding: "{{ item.encoding | default('utf8') }}"
         collation: "{{ item.collation | default('utf8_general_ci') }}"
+      loop: "{{ mysql_databases }}"

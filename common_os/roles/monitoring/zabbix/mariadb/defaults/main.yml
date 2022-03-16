@@ -5,3 +5,10 @@ mysql_databases: []
      encoding: utf8
      replicate: 1
      state: present
+
+# Users.
+mysql_users: []
+   - name: zabbix
+     host: 127.0.0.1
+     password: zabbixpassword
+     priv: *.*:ALL
