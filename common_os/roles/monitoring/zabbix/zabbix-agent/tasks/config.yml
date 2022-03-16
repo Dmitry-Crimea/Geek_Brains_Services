@@ -2,6 +2,15 @@
 
 -  name: copy conf file
    template:
-     src: zabbix_agentd.conf.j2
+     src: templates/zabbix_agentd.conf.j2
      dest: /etc/zabbix_agentd.conf
      owner: root
+     group: root
+     mode: 0644
+
+- name: start zabiix agent
+  service:
+    name: zabbix-agent
+    state: started
+    enabled: yes
+

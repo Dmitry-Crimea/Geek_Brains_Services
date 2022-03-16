@@ -11,4 +11,5 @@ mysql_users:
    - name: zabbix
      host: 127.0.0.1
      password: zabbixpassword
-     priv: '*.* :ALL'
+     priv: '*.*:ALL,GRANT'
+     state: present

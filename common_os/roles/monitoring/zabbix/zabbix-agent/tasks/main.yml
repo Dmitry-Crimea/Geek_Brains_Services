@@ -3,5 +3,5 @@
 - name: 'INSTALL | install zabbix-agent'
   import_tasks: install.yml
 
-- name: 'CONFIGURE | configurate zabbix- agent'
+- name: 'CONFIGURE | configurate zabbix-agent'
   import_tasks: config.yml

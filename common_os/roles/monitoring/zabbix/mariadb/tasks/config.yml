@@ -2,7 +2,7 @@
 
 - name: Create DB for Zabbix
   block:
-    - name: Create DB {{ item.name }} for Zabbix
+    - name: Create DB {{ mysql_databases.name }} for Zabbix
       mysql_db:
         name: "{{ item.name }}"
         state: "{{ item.state | default('present') }}"

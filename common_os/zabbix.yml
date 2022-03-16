@@ -3,9 +3,9 @@
 - hosts: unifi
   gather_facts: false
   roles:
-    - monitoring/zabbix/firewall
-    - monitoring/zabbix/mariadb
-    - monitoring/zabbix/nginx
-    - monitoring/zabbix/php-fpm
-    - monitoring/zabbix/zabbix-server
+#    - monitoring/zabbix/firewall
+#    - monitoring/zabbix/mariadb
+#    - monitoring/zabbix/nginx
+#    - monitoring/zabbix/php-fpm
+#    - monitoring/zabbix/zabbix-server
     - monitoring/zabbix/zabbix-agent

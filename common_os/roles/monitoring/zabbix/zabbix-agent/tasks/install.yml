@@ -4,4 +4,4 @@
   yum:
     name: zabbix-agent
     state: present
-    enabled: yes
+#    enabled: yes

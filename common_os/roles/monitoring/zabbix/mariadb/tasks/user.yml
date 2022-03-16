@@ -9,10 +9,11 @@
         state: absent
 
 
-- name: Ensure MySQL users are present
+- name: Ensure MySQL users {{ mysql_users.name }} are present
   mysql_user:
     name: "{{ item.name }}"
     host: "{{ item.host | default('localhost') }}"
     password: "{{ item.password }}"
-    priv: "{{ item.priv | default('*.*:ALL') }}"
-  loop: "{{ mysql_users }}"
+    priv: "{{ item.priv | default('*.*:ALL,GRANT') }}"
+    state: "{{ item.state | default(present) }}"
+  with_items: "{{ mysql_users }}"

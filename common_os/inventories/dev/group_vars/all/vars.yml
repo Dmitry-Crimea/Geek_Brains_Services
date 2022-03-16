@@ -48,13 +48,13 @@ unifi_mongodb_services: mongod.service
 zabbix:
   server_packages:
     - zabbix-server-mysql
-    - zabbix-get
-    - zabbix-web-mysql-scl
-    - zabbix-apache-conf-scl
+    - zabbix-server
+#    - zabbix-web-mysql-scl
+#    - zabbix-apache-conf-scl
 
   db_name: zabbix
   db_user: zabbix
-  db_passwor: zabbixpassword
+  db_password: zabbixpassword
 
   agent_packages:
     - zabbix-agent
