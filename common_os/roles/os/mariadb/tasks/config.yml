@@ -1,0 +1,16 @@
+---
+# Install MariaDB server
+
+- name: install and start MariaDB Server
+  block:
+    - name: install mariadb server
+      yum:
+        name: mariadb-server
+        state: present
+        update_cache: yes
+
+    - name: start mariadb
+      service:
+        name: mariadb
+        state: started
+        enabled: yes

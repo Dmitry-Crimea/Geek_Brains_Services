@@ -17,6 +17,13 @@ zabbix:
     - zabbix-web-mysql-scl
     - zabbix-apache-conf-scl
 
+  db_name: zabbix
+  db_user: zabbix
+  db_passwor: zabbixpassword
+
+  agent_packages:
+    - zabbix-agent
+
 ###################################################
 product: "lenovo"
 city: "home"
