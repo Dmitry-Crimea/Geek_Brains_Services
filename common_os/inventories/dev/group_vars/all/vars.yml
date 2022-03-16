@@ -3,10 +3,32 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+#################################################
+# PHP-FPM variables
+
+php_fpm:
+  packages:
+    - php
+    - php-cli
+    - php-fpm
+    - php-json
+    - php-pdo
+    - php-mysqlnd
+    - php-zip
+    - php-gd
+    - php-mbstring
+    - php-curl
+    - php-xml
+    - php-pear
+    - php-bcmath
+
+  ini_dir: /etc
+
+
 ##################################################
 # NGINX variables
 nginx:
-  html_dir: "/data/nginx/html"
+  root_dir: "/usr/share/nginx/html"
   conf_dir: "/etc/nginx/"
 
 

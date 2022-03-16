@@ -1,0 +1,4 @@
+---
+
+- name: 'INSTALL | install and start php-fpm'
+  import_tasks: "install.yml"

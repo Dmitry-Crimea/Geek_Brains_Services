@@ -1,0 +1,17 @@
+---
+
+- name: install and start php-fpm
+  block:
+    - name: install {{ php_fpm.packages }}
+      yum:
+        update_cache: yes
+        state: present
+        name: "{{ item }}"
+      loop: "{{ php_fpm.packages }}"
+
+    - name: start php-fpm
+      service:
+        name: php-fpm
+        state: started
+        enabled: yes
+      become: True
