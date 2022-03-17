@@ -7,5 +7,5 @@
 #    - monitoring/zabbix/mariadb
 #    - monitoring/zabbix/nginx
 #    - monitoring/zabbix/php-fpm
-#    - monitoring/zabbix/zabbix-server
-    - monitoring/zabbix/zabbix-agent
+    - monitoring/zabbix/zabbix-server
+#    - monitoring/zabbix/zabbix-agent

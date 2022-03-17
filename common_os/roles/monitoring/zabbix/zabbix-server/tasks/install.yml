@@ -1,11 +1,26 @@
 ---
 
-- name: install firewall
-  include_role:
-    name: os/firewalld
+#- name: install firewall
+#  include_role:
+#    name: os/firewalld
+
+- name: "RedHat | Install basic repo file"
+  yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('present') }}"
+  with_items: "{{ zabbix_repo_yum }}"
+  register: yum_repo_installed
+  notify: clean repo files from proxy creds
 
 - name: install zabbix-server
-  yum:
-    name: "{{ zabbix.server_packages }}"
+  package:
+    pkg: "{{ item }}"
     state: present
-    update_cache: yes
+  loop: "{{ zabbix.server_packages }}"
+
+
+
+

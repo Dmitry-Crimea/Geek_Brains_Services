@@ -3,5 +3,5 @@
 - name: 'INSTALL | install zabbix server'
   import_tasks: install.yml
 
-- name: 'CONFIGURATE | configurate zabbix server'
-  import_tasks: config.yml
+#- name: 'CONFIGURATE | configurate zabbix server'
+#  import_tasks: config.yml

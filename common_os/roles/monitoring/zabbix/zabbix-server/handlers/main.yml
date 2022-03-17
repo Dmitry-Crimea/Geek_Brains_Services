@@ -1,0 +1,4 @@
+---
+
+- name: "clean repo files from proxy creds"
+  shell: yum clean all
