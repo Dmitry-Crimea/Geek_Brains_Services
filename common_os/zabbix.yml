@@ -1,6 +1,6 @@
 ---
 
-- hosts: zabbix
+- hosts: unifi
   gather_facts: false
   roles:
 #    - monitoring/zabbix/firewall
