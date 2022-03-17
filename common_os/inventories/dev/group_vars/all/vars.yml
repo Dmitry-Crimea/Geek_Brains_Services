@@ -44,20 +44,7 @@ unifi_mongodb_services: mongod.service
 
 
 ###################################################
-# Zabbix variables
-zabbix:
-  server_packages:
-    - zabbix-server-mysql
-    - zabbix-server
-#    - zabbix-web-mysql-scl
-#    - zabbix-apache-conf-scl
 
-  db_name: zabbix
-  db_user: zabbix
-  db_password: zabbixpassword
-
-  agent_packages:
-    - zabbix-agent
 
 ###################################################
 product: "lenovo"

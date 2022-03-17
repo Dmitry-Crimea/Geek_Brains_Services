@@ -10,6 +10,19 @@ zabbix_repo_yum:
     baseurl: "{{ zabbix_repo_yum_schema }}://repo.zabbix.com/zabbix/{{ zabbix_version | regex_search('^[0-9]+.[0-9]+') }}/rhel/7/{{ zabbix_arch }}/zabbix-release-5.0-1.el7.noarch.rpm"
     state: present
     mode: '0644'
-    dest: /tmp
+#    dest: /tmp
     description: Zabbix Official Repository - $basearch
+
+zabbix:
+  server_packages:
+    - zabbix-server-mysql
+    - zabbix-agent
+    - zabbix-web-mysql
+    - zabbix-get
+
+  db_name: zabbix
+  db_user: zabbix
+  db_password: zabbixpassword
+  agent_packages:
+    - zabbix-agent
 
