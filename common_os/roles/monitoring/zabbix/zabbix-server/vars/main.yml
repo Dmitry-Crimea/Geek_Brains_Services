@@ -4,20 +4,32 @@ zabbix_server_version_minor: "*"
 zabbix_version: "{{ zabbix_server_version }}"
 zabbix_repo_yum_schema: https
 zabbix_repo: zabbix
+ansible_distribution_major_version: 7
+zabbix_repo_yum_gpgcheck: 0
 zabbix_arch: x86_64
+zabbix_server_username: zabbix
+zabbix_server_groupname: zabbix
 zabbix_repo_yum:
   - name: zabbix
-    baseurl: "{{ zabbix_repo_yum_schema }}://repo.zabbix.com/zabbix/{{ zabbix_version | regex_search('^[0-9]+.[0-9]+') }}/rhel/7/{{ zabbix_arch }}/zabbix-release-5.0-1.el7.noarch.rpm"
-    state: present
-    mode: '0644'
-#    dest: /tmp
     description: Zabbix Official Repository - $basearch
+    baseurl: "{{ zabbix_repo_yum_schema }}://repo.zabbix.com/zabbix/{{ zabbix_version | regex_search('^[0-9]+.[0-9]+') }}/rhel/{{ ansible_distribution_major_version }}/$basearch/"
+    gpgcheck: "{{ zabbix_repo_yum_gpgcheck }}"
+    mode: '0644'
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
+    state: present
+  - name: zabbix-non-supported
+    description: Zabbix Official Repository non-supported - $basearch
+    baseurl: "{{ zabbix_repo_yum_schema }}://repo.zabbix.com/non-supported/rhel/{{ ansible_distribution_major_version }}/$basearch/"
+    mode: '0644'
+    gpgcheck: "{{ zabbix_repo_yum_gpgcheck }}"
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
+    state: present
 
 zabbix:
   server_packages:
     - zabbix-server-mysql
     - zabbix-agent
-    - zabbix-web-mysql
+#    - zabbix-web-mysql
     - zabbix-get
 
   db_name: zabbix

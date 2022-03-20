@@ -3,6 +3,20 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+
+zabbix:
+  server_packages:
+    - zabbix-server-mysql
+    - zabbix-agent
+#    - zabbix-web-mysql
+    - zabbix-get
+
+  db_name: zabbix
+  db_user: zabbix
+  db_password: zabbixpassword
+  agent_packages:
+    - zabbix-agent
+    -
 #################################################
 # PHP-FPM variables
 
@@ -21,6 +35,7 @@ php_fpm:
     - php-xml
     - php-pear
     - php-bcmath
+    - MySQL-python
 
   ini_dir: /etc
 
@@ -28,8 +43,8 @@ php_fpm:
 ##################################################
 # NGINX variables
 nginx:
-  root_dir: "/usr/share/nginx/html"
-  conf_dir: "/etc/nginx/"
+  root_dir: /usr/share/nginx/html
+  conf_dir: /etc/nginx/
 
 
 domain: office.local
