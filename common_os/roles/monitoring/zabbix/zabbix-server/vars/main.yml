@@ -4,6 +4,7 @@ zabbix_server_version_minor: "*"
 zabbix_version: "{{ zabbix_server_version }}"
 zabbix_repo_yum_schema: https
 zabbix_repo: zabbix
+zabbix_mysql_directory: /usr/share/doc/zabbix-server-mysql-4.2.8
 ansible_distribution_major_version: 5
 zabbix_repo_yum_gpgcheck: 0
 zabbix_arch: x86_64

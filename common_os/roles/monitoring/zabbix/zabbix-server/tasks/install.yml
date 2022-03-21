@@ -1,19 +1,20 @@
 ---
 
-- name: Install and start zabbix server
+- name: Install and start Zabbix Server
   block:
-    - name: install zabbix-release
+    - name: install Zabbix-Release
       yum:
         name: "{{ item.directory }}/{{ zabbix_rpm_file }}"
         state: "{{ item.state }}"
         update_cache: yes
       loop: "{{ zabbix_repo_yum }}"
 
-    - name: install zabbix packages
+    - name: install Zabbix packages
       yum:
         name: "{{ item.server_packages }}"
         state: present
         update_cache: yes
       loop: "{{ zabbix }}""
+
 
 

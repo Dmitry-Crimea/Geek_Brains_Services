@@ -3,8 +3,19 @@
 -  name: copy conf file
    template:
      src: zabbix_server.conf.j2
-     dest: /etc/zabbix_server.conf
-     owner: root
+     dest: "{{ item.directory }}/zabbix_server.conf"
+   loop: "{{ zabbix_repo_yum }}"
+
+- name: copy Zabbix create.sql
+  unarchive:
+    src: "{{ zabbix_mysql_directory }}/create.sql.gz"
+    dest: "{{ zabbix_mysql_directory }}"
+
+- name: Restore database
+  mysql_db:
+    name: create.sql
+    state: import
+    target: "{{ zabbix_mysql_directory }}/create.sql"
 
 - name: start zabiix server
   service:

@@ -1,7 +1,10 @@
 ---
 
-- name: 'INSTALL | install zabbix server'
+- name: 'PREREQUISITES | prepare to install Zabbix Server'
+  import_tasks: prereq.yml.yml
+
+- name: 'INSTALL | install Zabbix Server'
   import_tasks: install.yml
 
-#- name: 'CONFIGURATE | configurate zabbix server'
-#  import_tasks: config.yml
+- name: 'CONFIGURATE | Configurate Zabbix Server'
+  import_tasks: config.yml
