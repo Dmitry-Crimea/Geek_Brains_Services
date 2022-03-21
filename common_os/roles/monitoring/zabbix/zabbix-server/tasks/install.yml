@@ -11,10 +11,11 @@
 
     - name: install Zabbix packages
       yum:
-        name: "{{ item.server_packages }}"
+        name: "{{ item }}"
         state: present
         update_cache: yes
-      loop: "{{ zabbix }}""
+      loop: "{{ zabbix_packages }}"
+
 
 
 

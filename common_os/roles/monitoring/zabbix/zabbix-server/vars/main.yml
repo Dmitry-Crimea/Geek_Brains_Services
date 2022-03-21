@@ -22,13 +22,13 @@ zabbix_repo_yum:
     owner: root
     group: root
 
-zabbix:
-  server_packages:
-    - zabbix-server-mysql
-    - zabbix-agent
-    - zabbix-web-mysql
-    - zabbix-get
+zabbix_packages:
+  - zabbix-server-mysql
+  - zabbix-agent
+  - zabbix-web-mysql
+  - zabbix-get
 
+zabbix:
   db_name: zabbix
   db_user: zabbix
   db_password: zabbixpassword

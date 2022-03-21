@@ -7,7 +7,7 @@
      owner: "{{ item.owner }}"
      group: "{{ item.owner }}"
      mode: "{{ item.mode }}"
-  loop: "{{ zabbix_repo_yum }}"
+   loop: "{{ zabbix_repo_yum }}"
 
 - name: start zabiix agent
   service:

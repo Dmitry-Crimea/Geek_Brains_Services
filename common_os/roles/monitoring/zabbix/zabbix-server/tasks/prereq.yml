@@ -9,10 +9,11 @@
         owner: "{{ item.owner }}"
         group: "{{ item.group }}"
         mode: "{{ item.mode }}"
+      loop: "{{ zabbix_repo_yum }}"
 
     - name: dowload zabbix-release
       get_url:
         url: "{{ item.baseurl }}"
         dest: "{{ item.directory }}"
+      loop: "{{ zabbix_repo_yum }}"
 
-  loop: "{{ zabbix_repo_yum }}"
