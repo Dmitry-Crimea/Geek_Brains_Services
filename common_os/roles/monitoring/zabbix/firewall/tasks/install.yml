@@ -1,0 +1,15 @@
+---
+
+
+- name: install the latest packages for firewalld
+  yum:
+    name: firewalld
+    state: present
+    update_cache: yes
+
+
+- name: start firewall
+  service:
+    name: firewalld
+    state: started
+    enabled: yes

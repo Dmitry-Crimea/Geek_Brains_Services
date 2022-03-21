@@ -1,12 +1,13 @@
 ---
 
-- name: install firewall
-  include_role:
-    name: os/firewalld
+- name: 'INSTALL | install firewalld'
+  import_tasks: install.yml
 
-- name: configurate SELinux
-  block:
-    - name: Disable SElinux
-      selinux:
-        state: disabled
+- name: 'PREREQ | prepare to install firewall'
+  import_tasks: prereq.yml
+
+
+- name: 'CONFIG | configure firewall'
+  import_tasks: config.yml
+
 
