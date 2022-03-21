@@ -3,9 +3,9 @@
 - hosts: R1
   gather_facts: false
   roles:
-    - monitoring/zabbix/firewall
-    - monitoring/zabbix/php-fpm
-    - monitoring/zabbix/mariadb
+#    - monitoring/zabbix/firewall
+#    - monitoring/zabbix/php-fpm
+#    - monitoring/zabbix/mariadb
     - monitoring/zabbix/nginx
 #    - monitoring/prometheus
 #    - monitoring/grafana

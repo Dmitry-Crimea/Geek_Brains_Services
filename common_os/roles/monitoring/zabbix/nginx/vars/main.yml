@@ -2,4 +2,4 @@
 
 nginx:
   root_dir: /usr/share/nginx/html
-  conf_dir: /etc/nginx/
+  conf_dir: /etc/nginx
