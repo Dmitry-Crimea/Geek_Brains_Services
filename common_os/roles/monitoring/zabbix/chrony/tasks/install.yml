@@ -1,0 +1,16 @@
+---
+
+- name: install and start chrony
+  block:
+    - name: Install chrony
+      yum:
+        name: chrony
+        state: present
+        update_cache: yes
+
+    - name: start chrony
+      service:
+        name: chrony
+        state: started
+        enacbled: yes
+
