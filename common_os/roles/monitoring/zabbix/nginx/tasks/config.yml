@@ -8,18 +8,5 @@
         dest: " {{  nginx.conf_dir }}/nginx.conf"
         owner: root
 
-    - name: update nginx config
-      template:
-        src: index.php.j2
-        dest: " {{ root_dir }}/index.php"
-        owner: root
-
-
-    - name: update upstream config
-      template:
-        src: load-balancer.conf
-        dest: /etc/nginx/conf.d/load-balancer.conf
-        owner: root
-
   notify:
     - reload nginx
