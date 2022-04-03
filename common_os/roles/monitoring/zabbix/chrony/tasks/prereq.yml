@@ -1,0 +1,9 @@
+---
+
+- name: config time zone
+  copy:
+    src: "{{ chrony.src }}/Moscow"
+    dest: "{{ chrony.dest }}/localtime"
+    owner: "{{ chrony.owner }}"
+    group: "{{ chrony.gup }}"
+    remote_src: yes

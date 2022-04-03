@@ -1,0 +1,33 @@
+---
+
+- name: enable ports | allow ospf | allow dhcp
+  block:
+    - name: open ports
+      firewalld:
+        port: "{{ item }}"
+        permanent: yes
+        immediate: yes
+        state: enabled
+      loop: "{{ firewall.ports }}"
+
+    - name: allow rules
+      firewalld:
+        rich_rule: "{{ item }}"
+        state: enabled
+        permanent: yes
+      loop: "{{ firewall.rules }}"
+
+    - name: allow dhcp
+      firewalld:
+        service: "{{ item }}"
+        zone: public
+        state: enabled
+        permanent: yes
+        immediate: yes
+      loop: "{{ firewall.services }}"
+
+  notify: restart firewalld
+
+
+
+

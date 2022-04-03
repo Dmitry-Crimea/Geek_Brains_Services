@@ -52,10 +52,6 @@ php_fpm:
 
 
 ##################################################
-# NGINX variables
-nginx:
-  root_dir: /usr/share/nginx/html
-  conf_dir: /etc/nginx/
 
 
 domain: office.local

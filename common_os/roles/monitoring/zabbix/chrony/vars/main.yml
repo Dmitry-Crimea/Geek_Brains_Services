@@ -1,0 +1,7 @@
+---
+
+chrony:
+  src: /usr/share/zoneinfo/Europe
+  dest: /etc
+  owner: root
+  group: root

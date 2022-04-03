@@ -1,0 +1,28 @@
+---
+
+# firewall variables
+firewall:
+  ports:
+    - 2049/tcp
+    - 80/tcp
+    - 111/tcp
+    - 2048/tcp
+    - 8080/tcp
+    - 8443/tcp
+    - 17088/tcp
+    - 17089/tcp
+    - 17090/tcp
+    - 17091/tcp
+    - 17092/tcp
+    - 9000/tcp
+    - 161/tcp
+
+  services:
+    - http
+    - https
+    - dhcp
+    - dns
+
+  rules:
+    - rule protocol value="ospf" accept
+    - rule protocol value="icmp" accept

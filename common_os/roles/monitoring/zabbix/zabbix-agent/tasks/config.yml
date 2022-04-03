@@ -2,11 +2,12 @@
 
 -  name: copy conf file
    template:
-     src: templates/zabbix_agentd.conf.j2
-     dest: /etc/zabbix_agentd.conf
-     owner: root
-     group: root
-     mode: 0644
+     src: zabbix_agentd.conf.j2
+     dest: "{{ item.directory }}/zabbix_agentd.conf"
+     owner: "{{ item.owner }}"
+     group: "{{ item.owner }}"
+     mode: "{{ item.mode }}"
+   loop: "{{ zabbix_repo_yum }}"
 
 - name: start zabiix agent
   service:

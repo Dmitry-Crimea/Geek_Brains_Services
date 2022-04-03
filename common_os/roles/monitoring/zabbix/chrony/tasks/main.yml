@@ -1,0 +1,7 @@
+---
+
+- name: 'PREREQUISITES | prepare to install chrony'
+  import_tasks: prereq.yml
+
+- name: 'INSTALL | install chrony'
+  import_tasks: install.yml
