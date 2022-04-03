@@ -1,0 +1,7 @@
+---
+
+- name: 'PREPARE | prepare to install snmp_exporter'
+  import_tasks: prereq.yml
+
+- name: 'INSTALL | install snmp_exporter'
+  import_tasks: install.yml

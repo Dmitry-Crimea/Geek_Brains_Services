@@ -1,2 +1,7 @@
+---
 
-
+- name: restart snmp_exporter
+  service:
+    name: "{{ item.name }}"
+    state: "{{ item.handlers_state }}"
+    enabled: "{{ item.service_enable }}"

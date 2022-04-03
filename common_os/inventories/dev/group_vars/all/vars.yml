@@ -9,6 +9,7 @@ dir_2: nfs_2
 snmp_exporter:
   - name: snmp-exporter
     name: snmp-exporter
+    handlers_state: restarted
     service_state: started
     service_enable: yes
     download_dir: snmp_exporter

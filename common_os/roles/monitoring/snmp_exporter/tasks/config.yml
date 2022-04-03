@@ -7,3 +7,4 @@
         src: snmp-exporter.service.j2
         dest: "{{ item.systemd_dir }}/snmp-exporter.service"
       loop: "{{ snmp_exporter }}"
+      notify: restart snmp_exporter
