@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: R1
   gather_facts: False
   roles:
 #    - os/firewalld
@@ -10,7 +10,8 @@
 #    - monitoring/prometheus
 #    - monitoring/grafana
 #    - os/logrotate
-    - os/unifi
+#    - os/unifi
+    - common/install_packages
 
 
 

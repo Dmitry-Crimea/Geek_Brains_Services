@@ -3,6 +3,17 @@
 dir_1: nfs_1
 dir_2: nfs_2
 
+#################################################
+# snmp_exporter variables
+
+snmp_exporter:
+  - name: snmp_exporter
+    download_dir: snmp_exporter
+    download_dir_state: directory
+    url: https://github.com/prometheus/snmp_exporter/releases/download/v0.20.0/snmp_exporter-0.20.0.linux-amd64.tar.gz
+
+#################################################
+# Zabbix variables
 
 zabbix:
   server_packages:
@@ -172,6 +183,7 @@ packages:
     - unzip
     - vim
     - wget
+    - mc
 
 #################################################
 # UniFi
