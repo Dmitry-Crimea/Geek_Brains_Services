@@ -1,0 +1,10 @@
+---
+
+- name: disable selinux
+  shell: setenforce 0
+  ignore_errors: yes
+
+
+- name: disable permanent
+  shell: sed -i "s/SELINUX=enforcing/SELINUX=disabled/" /etc/selinux/config
+  ignore_errors: yes

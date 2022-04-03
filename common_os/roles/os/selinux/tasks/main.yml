@@ -1,0 +1,4 @@
+---
+
+- name: 'CONFIGURE | configure selinux'
+  import_tasks: config.yml
