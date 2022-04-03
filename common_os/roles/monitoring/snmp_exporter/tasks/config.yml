@@ -1,0 +1,9 @@
+---
+
+- name: copying system file
+  block:
+    - name: copy system file
+      template:
+        src: snmp-exporter.service.j2
+        dest: "{{ item.systemd_dir }}/snmp-exporter.service"
+      loop: "{{ snmp_exporter }}"

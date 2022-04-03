@@ -1,0 +1,15 @@
+---
+
+- name: create directory and download snmp_exporter
+  block:
+    - name: create download_dir
+      file:
+        path: "{{ item.download_rir }}"
+        state: "{{ item.download_dir_state }}"
+      loop: "{{ snmp_exporter }}"
+
+    - name: download snmp_exporter
+      get_url:
+        url: "{{ item.url }}"
+        dest: "{{ item.download_rir }}"
+      loop: "{{ snmp_exporter }}"

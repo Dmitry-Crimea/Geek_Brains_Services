@@ -1,0 +1,21 @@
+---
+
+- name: Unrachive and move snmp_explorer
+  block:
+    - name: unarchive snmp exporter
+      unarchive:
+        src: "{{ item.download_rir }}/snmp_exporter-0.20.0.linux-amd64.tar.gz"
+        dest: "{{ item.opt }}/snmp_exporter"
+      remote_src: yes
+      loop: "{{ snmp_exporter }}"
+
+    - name: create symbol link
+      shell: ln -s /opt/snmp_exporter/snmp_exporter /usr/local/bin/snmp_exporter
+
+    - name: start snmp_exporter_service
+      service:
+        name: "{{ item.name }}"
+        state: "{{ item.service_state }}"
+        enabled: "{{ item.service_enable }}"
+
+

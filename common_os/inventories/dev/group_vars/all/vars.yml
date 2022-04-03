@@ -7,10 +7,15 @@ dir_2: nfs_2
 # snmp_exporter variables
 
 snmp_exporter:
-  - name: snmp_exporter
+  - name: snmp-exporter
+    name: snmp-exporter
+    service_state: started
+    service_enable: yes
     download_dir: snmp_exporter
     download_dir_state: directory
     url: https://github.com/prometheus/snmp_exporter/releases/download/v0.20.0/snmp_exporter-0.20.0.linux-amd64.tar.gz
+    opt: /opt
+    systemd_dir: /etc/systemd/system
 
 #################################################
 # Zabbix variables
@@ -114,6 +119,8 @@ dhcp:
 # firewall variables
 firewall:
   ports:
+    - 9116/tcp
+    - 888/tcp
     - 2049/tcp
     - 80/tcp
     - 111/tcp
