@@ -1,18 +1,42 @@
 ---
 
-- name: Locate grafana
-  copy:
-    src: "{{ item }}"
-    dest: "{{ grafana.download_dir | vars(grafana_defaults.download_dir) }}"
-    mode: 0755
-#    remote_src: true
-  with_items:
-    - "{{ grafana.rpm | vars(grafana_defaults.rpm) }}.rpm"
+- name: Add repository Grafana
+  yum_repository:
+    name: grafana
+    description: Grafana YUM repo
+    baseurl: https://packages.grafana.com/oss/rpm
+    repo_gpgcheck: yes
+    gpgkey: https://packages.grafana.com/gpg.key
+    gpgcheck: yes
+    sslcacert: /etc/pki/tls/certs/ca-bundle.crt
 
-- name: install grafana
-  import_role:
-    name: common/install_packages
-  vars:
-    package_action: "install"
-    package_list:
-      - "{{ grafana.download_dir | vars(grafana_defaults.download_dir) }}/{{ grafana.rpm | vars(grafana_defaults.rpm) }}.rpm"
+- name: install the packages
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - initscripts
+    - urw-fonts
+    - wget
+    - grafana
+
+- name: start grafana
+  service:
+    name: grafana-server
+    enabled: true
+    state: started
+    daemon_reload: yes
+
+- name: Grafana configuration file copy
+  template:
+    src: "grafana.ini.j2"
+    dest: "{{ grafana.dir }}/grafana.ini"
+  notify:  Restart the Grafana service
+
+
+#- name: Check if Grafana is accessible
+#  uri:
+#    url: http://127.0.0.1:3000
+#    method: GET
+#    status_code: 200

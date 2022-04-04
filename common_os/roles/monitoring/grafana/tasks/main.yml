@@ -1,34 +1,7 @@
----
-
 - name: install grafana
   block:
-    - name: 'INSTALL | Check grafana prerequisites'
-      import_tasks: "prerequisites.yml"
-      tags:
-        - 'grafana'
-        - 'grafana::prerequisites'
+    - name: prepare to install grafana
+      import_tasks: prereq.yml
 
-    - name: 'INSTALL | Install grafana'
-      import_tasks: "install.yml"
-      tags:
-        - 'grafana'
-        - 'grafana::install'
-
-    - name: 'INSTALL | Configurations'
-      import_tasks: "user.yml"
-      tags:
-            - 'grafana'
-            - 'grafana::config'
-
-    - name: 'INSTALL | Firewalld rules'
-      import_tasks: "firewalld.yml"
-      tags:
-            - 'grafana'
-            - 'grafana::firewalld'
-
-    - name: 'INSTALL | Update version'
-      import_tasks: "install.yml"
-      tags:
-            - 'grafana::update'
-
-  when: " 'unifi' in inventory_hostname"
+    - name: install grafana
+      import_tasks: install.yml

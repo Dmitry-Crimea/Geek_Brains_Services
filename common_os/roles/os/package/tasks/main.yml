@@ -1,0 +1,11 @@
+---
+
+- name: "{{ package_action|title }} packages"
+  block:
+    - name: Detect prerequisites
+      include_tasks: "detect.yml"
+
+    - name: "{{ package_action|title }} packages"
+      include_tasks: "actions/{{ os_distribution }}.yml"
+      vars:
+        package_name: "{{ package_list|join(',') }}"

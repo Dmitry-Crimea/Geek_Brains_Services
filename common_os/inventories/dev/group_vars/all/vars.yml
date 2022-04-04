@@ -8,7 +8,7 @@ dir_2: nfs_2
 
 snmp_exporter:
   - name: snmp-exporter
-    name: snmp-exporter
+    snmp_name: snmp-exporter
     handlers_state: restarted
     service_state: started
     service_enable: yes
@@ -89,18 +89,21 @@ env: "local"
 # Prometheus variables
 
 prometheus:
-  user: prometheus
+  download_url: https://github.com/prometheus/prometheus/releases/download/v2.33.3/prometheus-2.33.3.linux-amd64.tar.gz
+  download_dir: /home/gu_admin/prometheus/unpack
+  unpack_dir: /home/gu_admin/prometheus/unpack
+  owner: prometheus
   group: prometheus
-  version: 2.33.5
-  remove_src: true
-  dir: "/etc/prometheus"
-  targets_dir: "/etc/prometheus/targets"
-  alerts_dir: "/etc/prometheus/alerts"
-  bin_sources: "/data/prometheus-sources"
-  download_dir: "/data/downloads"
-  log: /var/log/prometheus/prometheus.log
-  storage: /home/prometheus/data
+  etc_dir: /etc/prometheus
+  var_lib: /var/lib/prometheus
+  version: 2.33.3
+  local_bin: /usr/local/bin/
+  storage: /home/gu_admin/prometheus/data
   retention_time: 180d
+  log: /var/log/prometheus/prometheus.log
+  targets_dir: /etc/prometheus/targets
+  alerts_dir: /etc/prometheus/alerts
+  remove_src: true
 
 ########################################
 # variables for DNS
@@ -121,6 +124,7 @@ dhcp:
 firewall:
   ports:
     - 9116/tcp
+    - 3000/tcp
     - 888/tcp
     - 2049/tcp
     - 80/tcp

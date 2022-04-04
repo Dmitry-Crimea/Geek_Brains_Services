@@ -2,22 +2,22 @@
 
 - name: Add /etc/prometheus/prometheus.yml file
   template:
-    src: "prometheus.yml.j2"
-    dest: "/etc/prometheus/prometheus.yml"
-    owner: "{{ prometheus.user }}"
+    src: prometheus.yml.j2
+    dest: "{{ prometheus.etc_dir }}/prometheus.yml"
+    owner: "{{ prometheus.owner }}"
     group: "{{ prometheus.group }}"
     mode: 0750
   notify: restart prometheus
 
-- name: Logrotate configuration
-  template:
-    src: "prometheus.logrotate.j2"
-    dest: "{{ logrotate_dir }}/prometheus"
-    mode: 0750
+#- name: Logrotate configuration
+#  template:
+#    src: prometheus.logrotate.j2
+#    dest: "{{ logrotate.dir }}/prometheus"
+#    mode: 0750
 
 - name: Add prometheus systemd service unit file
   template:
-    src: "prometheus.service.j2"
+    src: prometheus.service.j2
     dest: "{{ systemd_unitdir }}/prometheus.service"
     mode: 0755
   notify: restart prometheus

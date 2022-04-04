@@ -2,16 +2,16 @@
 - hosts: all
   gather_facts: False
   roles:
-    - os/firewalld
-    - os/selinux
+#    - os/firewalld
+#    - os/selinux
 #    - os/NIC_teaming
 #    - os/dhcp
 #    - os/NFS-Server
 #    - os/dns
-    - monitoring/prometheus
+#    - monitoring/prometheus
 #    - monitoring/snmp_exporter
-#    - monitoring/grafana
-    - os/logrotate
+    - monitoring/grafana
+#    - os/logrotate
 #    - os/unifi
 #    - common/install_packages
 

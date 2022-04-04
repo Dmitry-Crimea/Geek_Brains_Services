@@ -4,9 +4,9 @@
   block:
     - name: unarchive snmp exporter
       unarchive:
-        src: "{{ item.download_rir }}/snmp_exporter-0.20.0.linux-amd64.tar.gz"
-        dest: "{{ item.opt }}/snmp_exporter"
-      remote_src: yes
+        src: "{{ item.download_dir }}/snmp_exporter-0.20.0.linux-amd64.tar.gz"
+        dest: "{{ item.opt }}"
+        remote_src: yes
       loop: "{{ snmp_exporter }}"
 
     - name: create symbol link

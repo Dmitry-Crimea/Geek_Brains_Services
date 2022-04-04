@@ -1,0 +1,25 @@
+---
+
+- service_facts:
+
+- name: Add prometheus user
+  user:
+    name: "{{ prometheus.owner }}"
+    system: true
+    create_home: false
+    shell: /bin/false
+
+- name: make directories for prometheus
+  block:
+    - name: download_dir
+      file:
+        path: "{{ item }}"
+        owner: "{{ prometheus.owner }}"
+        group: "{{ prometheus.group }}"
+        mode: 0755
+        recurse: yes
+      loop:
+        - "{{ prometheus.download_dir }}"
+        - "{{ prometheus.unpack_dir }}"
+        - "{{ prometheus.etc_dir }}"
+        - "{{ prometheus.var_lib }}"

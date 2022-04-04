@@ -1,0 +1,34 @@
+---
+
+- name: Gather facts
+  setup:
+
+- name: "Detect the distribution"
+  block:
+    - name: Ensure if the distribution is CentOS/RHEL 7
+      set_fact:
+        os_distribution: "centos7"
+      when:
+        - ansible_distribution|regex_search('^(CentOS|RedHat)')
+        - ansible_distribution_version|regex_search('^7')
+
+    - name: Ensure if the distribution is CentOS/RHEL 8
+      set_fact:
+        os_distribution: "centos8"
+      when:
+        - ansible_distribution|regex_search('^(CentOS|RedHat|AlmaLinux|Rocky)')
+        - ansible_distribution_version|regex_search('^8')
+
+- name: "Detect the package state"
+  block:
+    - name: Define an present state if action is install
+      set_fact:
+        package_state: "present"
+      when:
+        - package_action|regex_search('^(install)$')
+
+    - name: Define an absent state if action is delete
+      set_fact:
+        package_state: "absent"
+      when:
+        - package_action|regex_search('^(delete|remove)$')

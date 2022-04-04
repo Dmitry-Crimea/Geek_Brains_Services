@@ -1,26 +1,25 @@
 ---
 
-- name: Locate prometheus
-  copy:
-    src: "{{ item }}"
+- name: dowload prmetheus
+  get_url:
+    url: "{{ prometheus.download_url }}"
     dest: "{{ prometheus.download_dir }}"
-    mode: 0755
-  with_items:
-    - "prometheus-{{ prometheus.version }}.{{ architecture }}.tar.gz"
 
-- name: Unarchive prometheus release
+
+
+- name: unpack prometheus
   unarchive:
-    src: "{{ prometheus.download_dir }}/prometheus-{{ prometheus.version }}.{{ architecture }}.tar.gz"
-    dest: "{{ prometheus.bin_sources }}"
-    remote_src: true
-    extra_opts: [--strip-components=1]
+    src: "{{ prometheus.download_dir }}/prometheus-{{prometheus.version}}.{{ architecture }}.tar.gz"
+    dest: "{{ prometheus.unpack_dir }}"
+    remote_src: yes
+#    extra_opts: [--strip-components=1]
 
-- name: Copy files to /usr/local/bin directories
+- name: copy prometheus files
   copy:
-    src: "{{ prometheus.bin_sources }}/{{ item }}"
-    dest: /usr/local/bin/{{ item }}
+    src: "{{  prometheus.unpack_dir }}/prometheus-{{ prometheus.version }}.{{ architecture }}/{{ item }}"
+    dest: "{{ prometheus.local_bin }}/{{ item }}"
     remote_src: true
-    owner: "{{ prometheus.user }}"
+    owner: "{{ prometheus.owner }}"
     group: "{{ prometheus.group }}"
     mode: 0755
   loop:
@@ -29,10 +28,10 @@
 
 - name: Move files to /etc/prometheus
   copy:
-    src: "{{ prometheus.bin_sources }}/{{ item }}"
-    dest: /etc/prometheus/{{ item }}
+    src: "{{  prometheus.unpack_dir }}/prometheus-{{ prometheus.version }}.{{ architecture }}/{{ item }}"
+    dest: "{{ prometheus.etc_dir }}/{{ item }}"
     remote_src: true
-    owner: "{{ prometheus.user }}"
+    owner: "{{ prometheus.owner }}"
     group: "{{ prometheus.group }}"
     mode: 0755
   loop:

@@ -4,12 +4,12 @@
   block:
     - name: create download_dir
       file:
-        path: "{{ item.download_rir }}"
+        path: "{{ item.download_dir }}"
         state: "{{ item.download_dir_state }}"
       loop: "{{ snmp_exporter }}"
 
     - name: download snmp_exporter
       get_url:
         url: "{{ item.url }}"
-        dest: "{{ item.download_rir }}"
+        dest: "{{ item.download_dir }}"
       loop: "{{ snmp_exporter }}"
