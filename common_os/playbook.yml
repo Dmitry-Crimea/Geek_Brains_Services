@@ -9,8 +9,8 @@
 #    - os/NFS-Server
 #    - os/dns
     - monitoring/prometheus
-    - monitoring/snmp_exporter
-    - monitoring/grafana
+#    - monitoring/snmp_exporter
+#    - monitoring/grafana
     - os/logrotate
 #    - os/unifi
 #    - common/install_packages

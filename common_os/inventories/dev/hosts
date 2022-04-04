@@ -1,4 +1,3 @@
 [all]
 
-Prometheus ansible_host=178.34.157.230 ansible_port=30026
-
+192.1268.42.220

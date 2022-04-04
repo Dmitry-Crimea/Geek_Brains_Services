@@ -202,3 +202,34 @@ unifi:
   group: unifi
 
 
+#################################################
+# Node_exporter variables
+
+node_exporter:
+  logdir: /var/log/node_exporter
+  port: 9100
+  protocol: tcp
+  smartmon_version: "7"
+  service: node_exporter.service
+  smartd_service: smartd.service
+  consul_service: consul.service
+  metrics_dir: /var/lib/node_exporter/metrics
+  bin: /usr/local/bin/node_exporter
+  dir: /etc/node_exporter
+  systemd: /etc/systemd/system
+  download: /home/gu_admin/node_exporter/download
+  version: 1.3.1
+  architecture:
+  url: https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
+  user: node_exporter
+  group: node_exporter
+
+#################################################
+# Grafana variables
+
+grafana:
+  url: https://dl.grafana.com/oss/release
+  version: 8.4.2-1
+  architecture: x86_64
+  dir: /etc/grafana/
+
